@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Gaming Reward Android</string>
+    <string-array name="spectator_type">
+        <item>Select user Type</item>
+        <item>Spectator</item>
+        <item>Volunteer</item>
+        <item>Parent</item>
+        <item>Coach</item>
+        <item>Player</item>
+    </string-array>
+</resources>
