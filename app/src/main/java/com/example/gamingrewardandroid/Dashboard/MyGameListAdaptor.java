@@ -14,7 +14,7 @@ import com.example.gamingrewardandroid.FeatureContraoller;
 import com.example.gamingrewardandroid.R;
 
 public class MyGameListAdaptor extends RecyclerView.Adapter<MyGameListAdaptor.ViewHolder> {
-    public String[] gamename;
+    public String[]  gamename;
     MyGameListAdaptor(String [] names){
         this.gamename=names;
 
