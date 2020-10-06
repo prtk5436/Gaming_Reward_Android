@@ -1,9 +1,117 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/game"
     tools:context=".PointsData">
+    <ImageView
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:id="@+id/gameIcon"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="10dp"
+        android:padding="1dp"
+        android:src="@drawable/pub" />
+
+    <TextView
+        android:id="@+id/txt_gamename"
+        android:text="Game name"
+        android:textStyle="bold"
+        android:layout_marginTop="20dp"
+        android:layout_below="@id/gameIcon"
+        android:gravity="center_horizontal"
+        android:textSize="20dp"
+        android:textColor="@android:color/white"
+        android:fontFamily="casual"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <LinearLayout
+        android:id="@+id/layout_pubg"
+        android:visibility="visible"
+        android:layout_marginTop="20dp"
+        android:orientation="vertical"
+        android:layout_below="@id/txt_gamename"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    <EditText
+        android:id="@+id/edt_pubg_kills"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="@drawable/shapeemail"
+        android:hint="Kills"
+        android:inputType="number"
+        android:maxLength="2"
+        android:textStyle="bold"
+        android:padding="15dp"
+        android:textColor="@color/white"
+        android:textColorHighlight="@color/white"
+        android:textColorHint="@color/white"
+        android:visibility="visible"
+        />
+        <EditText
+            android:id="@+id/edt_pubg_rank"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/shapeemail"
+            android:hint="rank"
+            android:inputType="number"
+            android:maxLength="2"
+            android:textStyle="bold"
+            android:padding="15dp"
+            android:textColor="@color/white"
+            android:textColorHighlight="@color/white"
+            android:textColorHint="@color/white"
+            android:visibility="visible"
+            />
+    </LinearLayout>
+    <TextView
+        android:layout_alignBaseline="@id/screenShot"
+        android:id="@+id/scr"
+        android:layout_marginLeft="20dp"
+        android:text="Screenshot of game:"
+        android:textStyle="bold"
+        android:layout_marginTop="30dp"
+        android:layout_below="@id/layout_pubg"
+
+        android:textSize="20dp"
+        android:textColor="@android:color/white"
+        android:fontFamily="casual"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <ImageView
+
+        android:layout_marginTop="30dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/layout_pubg"
+        android:layout_marginLeft="20dp"
+        android:src="@drawable/camera"
+        android:padding="5dp"
+        android:layout_toRightOf="@id/scr"
+        android:id="@+id/screenShot"
+        android:layout_width="40dp"
+        android:layout_height="40dp" />
+    <Button
+        android:layout_margin="30dp"
+        android:layout_below="@id/screenShot"
+        android:id="@+id/btnsubmitscore"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/shapelogin"
+        android:padding="15dp"
+        android:shadowColor="@android:color/transparent"
+        android:text="Submit Score"
+        android:textColor="#fff"
+        android:textStyle="bold"
+        android:visibility="visible" />
+
+</RelativeLayout>
