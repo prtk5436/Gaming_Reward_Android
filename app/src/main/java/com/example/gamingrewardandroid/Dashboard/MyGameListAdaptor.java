@@ -1,5 +1,6 @@
 package com.example.gamingrewardandroid.Dashboard;
 
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,15 +13,13 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.gamingrewardandroid.FeatureContraoller;
 import com.example.gamingrewardandroid.R;
 
-import java.util.ArrayList;
-
 public class MyGameListAdaptor extends RecyclerView.Adapter<MyGameListAdaptor.ViewHolder> {
     public String[] gamename;
-
-    MyGameListAdaptor(String[] gamelist){
-    this.gamename=gamelist;
+    MyGameListAdaptor(String [] names){
+        this.gamename=names;
 
     }
+
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -29,6 +28,8 @@ public class MyGameListAdaptor extends RecyclerView.Adapter<MyGameListAdaptor.Vi
         ViewHolder viewHolder=new ViewHolder(gamelists);
         return viewHolder;
     }
+
+
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {

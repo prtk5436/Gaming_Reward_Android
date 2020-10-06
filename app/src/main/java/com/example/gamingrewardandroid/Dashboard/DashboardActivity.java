@@ -31,6 +31,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.gamingrewardandroid.AuthenticationApi;
+
 import com.example.gamingrewardandroid.CommonFunctions;
 import com.example.gamingrewardandroid.FeatureContraoller;
 import com.example.gamingrewardandroid.Model.Post;
@@ -107,9 +108,9 @@ public class DashboardActivity extends AppCompatActivity {
         recyclerView.setAdapter(gameListAdaptor);
     }
 
-    private void getlist() {
+  private void getlist() {
     gamelist=FeatureContraoller.getInstance().getGamelist();
-    int count=gamelist.size();
+     int count=gamelist.size();
     gamename=new String[count];
     for (int i=0;i<count ;i++){
         gamename[i]=gamelist.get(i).getGameName().toString();

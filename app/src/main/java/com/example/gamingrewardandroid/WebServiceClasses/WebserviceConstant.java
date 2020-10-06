@@ -3,7 +3,7 @@ package com.example.gamingrewardandroid.WebServiceClasses;
 import android.content.Context;
 import android.content.SharedPreferences;
 
-import com.example.gamingrewardandroid.MainApplication;
+
 
 
 public class WebserviceConstant {
@@ -11,7 +11,7 @@ public class WebserviceConstant {
 
     public static final String HTTP_BASE_URL1 = "https://";
     //public static final String BASE_URL = "https://test.smartcookie.in/";
-    public static String BASE_URL = "https://smartcookie.in/";
+    public static String BASE_URL = "https://dev.smartcookie.in/";
      //public static final String BASE_URL = "https://smartcookie.in/";
      public static String BASE_URL1 = "smartcookie.in/core/";
 

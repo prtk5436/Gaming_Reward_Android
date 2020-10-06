@@ -1,5 +1,6 @@
 package com.example.gamingrewardandroid;
 
+
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.ProgressDialog;
@@ -19,7 +20,6 @@ import java.util.Date;
 import java.util.List;
 
 import static com.example.gamingrewardandroid.MainApplication.getContext;
-
 
 /**
  * Created by Priyanka on 3/19/2018.
@@ -414,7 +414,8 @@ public class CommonFunctions {
     public static String getNetworkClass(Context context) {
         TelephonyManager mTelephonyManager = (TelephonyManager)
                 context.getSystemService(Context.TELEPHONY_SERVICE);
-        @SuppressLint("MissingPermission") int networkType = mTelephonyManager.getNetworkType();
+        @SuppressLint("MissingPermission")
+        int networkType = mTelephonyManager.getNetworkType();
         switch (networkType) {
             case TelephonyManager.NETWORK_TYPE_GPRS:
             case TelephonyManager.NETWORK_TYPE_EDGE:

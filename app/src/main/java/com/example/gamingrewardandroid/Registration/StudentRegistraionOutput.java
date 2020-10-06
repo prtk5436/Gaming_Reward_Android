@@ -1,5 +1,6 @@
 package com.example.gamingrewardandroid.Registration;
 
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 

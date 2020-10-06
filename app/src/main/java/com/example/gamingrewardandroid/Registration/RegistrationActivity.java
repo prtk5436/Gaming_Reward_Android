@@ -1,9 +1,9 @@
 package com.example.gamingrewardandroid.Registration;
 
+
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-
 import android.text.TextUtils;
 import android.util.Log;
 import android.util.Patterns;
@@ -31,7 +31,6 @@ import com.google.gson.Gson;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-
 
 public class RegistrationActivity extends AppCompatActivity implements  AdapterView.OnItemSelectedListener{
 TextView tv1,tvRegister;
@@ -61,7 +60,7 @@ private Spinner spintype;
         });*/
 
 
-        spintype.setOnItemSelectedListener(this);
+        spintype.setOnItemSelectedListener((AdapterView.OnItemSelectedListener) RegistrationActivity.this);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
                 R.array.spectator_type, android.R.layout.simple_spinner_item);
         // Specify the layout to use when the list of choices appears
@@ -253,13 +252,19 @@ private Spinner spintype;
         btnRegistration=(Button)findViewById(R.id.btnRegistration);
     }
 
+
     @Override
-    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
 
     }
 
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
+
+    }
+
+    @Override
+    public void onPointerCaptureChanged(boolean hasCapture) {
 
     }
 }

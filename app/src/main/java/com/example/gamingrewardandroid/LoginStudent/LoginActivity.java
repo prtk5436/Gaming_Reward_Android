@@ -18,6 +18,7 @@ import android.widget.Toast;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
+
 import com.example.gamingrewardandroid.AuthenticationApi;
 import com.example.gamingrewardandroid.Dashboard.DashboardActivity;
 import com.example.gamingrewardandroid.Dashboard.GameList;
@@ -45,9 +46,11 @@ public class LoginActivity extends AppCompatActivity {
     private ProgressBar pgsBar;
     private SharedPreferences pref;
     private TextView tv1;
+    String [] gamename;
     private RadioGroup rdg_app_type;
     SharedPreferences.Editor editor;
     private RadioButton rbtn_dev,rbtn_test,rbtn_production;
+    ArrayList <GameList> gameLists=new ArrayList<>();
     @RequiresApi(api = Build.VERSION_CODES.GINGERBREAD)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -123,6 +126,7 @@ public class LoginActivity extends AppCompatActivity {
         btnlogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                getlistgames();
                 String name = Uname.getText().toString().trim();
                 String schoolid = schoolId.getText().toString().trim();
                 String pass = password.getText().toString().trim();
@@ -194,10 +198,12 @@ public class LoginActivity extends AppCompatActivity {
                         editor.commit();
 
                         MyFeatureController.getInstance().setMemberId(response.body().getPosts().get(0).getMemberId());
-                        getlistgames();
+
                         Toast.makeText(getApplicationContext(),"Welcome  "+response.body().getPosts().get(0).getFName(),Toast.LENGTH_LONG).show();
 
                         Intent i = new Intent(LoginActivity.this, DashboardActivity.class);
+           //             i.putExtra("gname",gamename);
+
                         startActivity(i);
                         finish();
                     }else {
@@ -230,6 +236,14 @@ public class LoginActivity extends AppCompatActivity {
             public void onResponse(Call<GameListOutput> call, Response<GameListOutput> response) {
                 if (response.body()!=null){
                     if (response.body().getResponseStatus()==200){
+                        gameLists= (ArrayList<GameList>) response.body().getGameList();
+                        int i=gameLists.size();
+                        gamename=new String[i];
+                        for (int j=0;j<i;j++){
+                            gamename[j]=gameLists.get(j).getGameName().toString();
+
+                        }
+                        FeatureContraoller.getInstance().setGamename(gamename);
                         FeatureContraoller.getInstance().setGamelist((ArrayList<GameList>) response.body().getGameList());
                     }else {
                         Toast.makeText(getApplicationContext(),"game",Toast.LENGTH_LONG);

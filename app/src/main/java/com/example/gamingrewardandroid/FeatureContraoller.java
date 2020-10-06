@@ -4,13 +4,28 @@ package com.example.gamingrewardandroid;
 import com.example.gamingrewardandroid.Dashboard.GameList;
 import com.example.gamingrewardandroid.LoginStudent.StudentModel;
 
-import java.security.PublicKey;
 import java.util.ArrayList;
-import java.util.List;
 
 public class FeatureContraoller {
+    public static FeatureContraoller getFeatureContraoller() {
+        return featureContraoller;
+    }
 
-   public static FeatureContraoller featureContraoller ;
+    public static void setFeatureContraoller(FeatureContraoller featureContraoller) {
+        FeatureContraoller.featureContraoller = featureContraoller;
+    }
+
+    String gamename[];
+
+    public String[] getGamename() {
+        return gamename;
+    }
+
+    public void setGamename(String[] gamename) {
+        this.gamename = gamename;
+    }
+
+    public static FeatureContraoller featureContraoller ;
     //ArrayList<PackageInformation.InfoObject> gameList =new ArrayList<>();
     //PackageInformation.InfoObject selectedGame = new PackageInformation.InfoObject();
    public String memberId, schoolId, fullName, PRN;
