@@ -1,6 +1,5 @@
 package com.example.gamingrewardandroid.Dashboard;
-
-
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.gamingrewardandroid.FeatureContraoller;
+import com.example.gamingrewardandroid.PointsData;
 import com.example.gamingrewardandroid.R;
 
 public class MyGameListAdaptor extends RecyclerView.Adapter<MyGameListAdaptor.ViewHolder> {
@@ -32,9 +32,15 @@ public class MyGameListAdaptor extends RecyclerView.Adapter<MyGameListAdaptor.Vi
 
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull final ViewHolder holder, int position) {
         holder.gamenm.setText(gamename[position]);
-
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(view.getContext(), PointsData.class);
+                view.getContext().startActivity(intent);
+            }
+        });
 
     }
 
@@ -47,8 +53,6 @@ public class MyGameListAdaptor extends RecyclerView.Adapter<MyGameListAdaptor.Vi
         public TextView gamenm;
         RelativeLayout gamelayout;
         public ViewHolder(@NonNull View itemView) {
-
-
             super(itemView);
             gamelayout=itemView.findViewById(R.id.gamelayout);
             gamenm=itemView.findViewById(R.id.txt_gamename);
