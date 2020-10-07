@@ -6,22 +6,21 @@
     android:layout_height="match_parent"
     android:background="@drawable/game"
     tools:context=".PointsForm.PointsDataForm">
-    <ImageView
-
-        android:id="@+id/gameIcon"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/gameicon"
+        android:layout_width="98dp"
+        android:layout_marginLeft="20dp"
         android:layout_centerHorizontal="true"
-        android:layout_margin="10dp"
-        android:padding="1dp"
-        android:src="@drawable/pub" />
+        android:layout_marginTop="30dp"
+        android:src="@drawable/images"
+        android:layout_height="98dp"/>
 
     <TextView
         android:id="@+id/txt_gamename"
         android:text="Game name"
         android:textStyle="bold"
         android:layout_marginTop="20dp"
-        android:layout_below="@id/gameIcon"
+        android:layout_below="@id/gameicon"
         android:gravity="center_horizontal"
         android:textSize="20dp"
         android:textColor="@android:color/white"

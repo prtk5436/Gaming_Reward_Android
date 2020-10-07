@@ -19,10 +19,13 @@ import com.example.gamingrewardandroid.R;
 
 public class MyGameListAdaptor extends RecyclerView.Adapter<MyGameListAdaptor.ViewHolder> {
     public String[]  gamename;
+    public String[] id;
     public String[] gameimg;
+
     Context context;
-    MyGameListAdaptor( String[] names, String[] gameimg,Context context){
+    MyGameListAdaptor( String[] names, String[] gameimg,Context context, String[] id){
         this.gamename=names;
+        this.id=id;
         this.gameimg=gameimg;
         this.context=context;
     }
@@ -39,13 +42,16 @@ public class MyGameListAdaptor extends RecyclerView.Adapter<MyGameListAdaptor.Vi
 
 
     @Override
-    public void onBindViewHolder(@NonNull final ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull final ViewHolder holder, final int position) {
         holder.gamenm.setText(gamename[position]);
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent=new Intent(view.getContext(), PointsDataForm.class);
+                intent.putExtra("gamename",gamename[position]);
+                intent.putExtra("gameid",id[position]);
+                intent.putExtra("url",gameimg[position]);
                 view.getContext().startActivity(intent);
             }
         });

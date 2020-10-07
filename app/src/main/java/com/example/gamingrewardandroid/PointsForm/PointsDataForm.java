@@ -5,9 +5,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.bumptech.glide.request.RequestOptions;
 import com.example.gamingrewardandroid.AuthenticationApi;
 import com.example.gamingrewardandroid.R;
 import com.example.gamingrewardandroid.WebServiceClasses.ApiClient;
@@ -23,13 +28,32 @@ public class PointsDataForm extends AppCompatActivity {
     LinearLayout gamelayout;
     int size;
     EditText[] param;
+    ImageView gameimg;
+    String url;
+    String gamename;
+    String id;
+    TextView gamenm;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_points_data);
-
         gamelayout=findViewById(R.id.layout_pubg);
+
+        gameimg=findViewById(R.id.gameicon);
+        gamenm=findViewById(R.id.txt_gamename);
+        url=getIntent().getStringExtra("url");
+        gamename=getIntent().getStringExtra("gamename");
+        id=getIntent().getStringExtra("gameid");
+        gamenm.setText(gamename);
+        Glide.with(PointsDataForm.this)
+                .load(url)
+                .apply(RequestOptions.circleCropTransform())
+                .thumbnail(0.5f)
+                .placeholder(R.drawable.images)
+                .diskCacheStrategy(DiskCacheStrategy.NONE)
+                .into(gameimg);
+
         getParametrs();
 
     }
@@ -66,7 +90,7 @@ public class PointsDataForm extends AppCompatActivity {
         AuthenticationApi api= ApiClient.getClient().create(AuthenticationApi.class);
         RewardParameterInput i=new RewardParameterInput();
         i.setOperation("List_Of_Game_Parameters");
-        i.setGameId("1");
+        i.setGameId(id);
         Call<ReawardParameterOutput> call= api.getGameParameterList(i);
         call.enqueue(new Callback<ReawardParameterOutput>() {
             @Override
@@ -75,7 +99,7 @@ public class PointsDataForm extends AppCompatActivity {
                     if (response.body().getResponseStatus()==200){
                         paramlist= response.body().getGameParametersList().toArray();
                         size = paramlist.length;
-                        Toast.makeText(PointsDataForm.this,"woi",Toast.LENGTH_LONG).show();
+                        //Toast.makeText(PointsDataForm.this,"woi",Toast.LENGTH_LONG).show();
                         setdata();
                     }
                 }

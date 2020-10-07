@@ -74,6 +74,8 @@ public class DashboardActivity extends AppCompatActivity {
   FeatureContraoller featureContraoller;
   ArrayList<GameList> gamelist=new ArrayList<>();
   public  String[] gamename;
+    public  String[] id;
+
   public String[] gameimg;
     SharedPreferences pref;
     SharedPreferences.Editor editor;
@@ -103,7 +105,7 @@ public class DashboardActivity extends AppCompatActivity {
 
         myName.setText(FeatureContraoller.getInstance().getFullName());
 
-        MyGameListAdaptor gameListAdaptor=new MyGameListAdaptor(gamename,gameimg,DashboardActivity.this);
+        MyGameListAdaptor gameListAdaptor=new MyGameListAdaptor(gamename,gameimg,DashboardActivity.this,id);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setHasFixedSize(true);
         recyclerView.setAdapter(gameListAdaptor);
@@ -115,9 +117,11 @@ public class DashboardActivity extends AppCompatActivity {
 
     gamename=new String[count];
     gameimg=new String[count];
+    id=new String[count];
     for (int i=0;i<count ;i++){
         gamename[i]=gamelist.get(i).getGameName().toString();
         gameimg[i]=gamelist.get(i).getGameimage().toString();
+        id[i]=gamelist.get(i).getGameId().toString();
 
     }
     }
