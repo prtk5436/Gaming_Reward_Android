@@ -53,7 +53,7 @@ public class PointsDataForm extends AppCompatActivity {
             param[i].setHintTextColor(Color.WHITE);
             param[i].setTextSize(25);
 
-            param[i].setPadding(15,15,15,15);
+            param[i].setPadding(30,15,15,15);
 
             gamelayout.addView(param[i]);
         }
