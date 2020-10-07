@@ -28,9 +28,9 @@ public class PointsDataForm extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_points_data);
-        getParametrs();
+
         gamelayout=findViewById(R.id.layout_pubg);
-         setdata();
+        getParametrs();
 
     }
 
@@ -39,13 +39,19 @@ public class PointsDataForm extends AppCompatActivity {
         param=new EditText[size];
         for (int i=0;i< size;i++){
             param[i]=new EditText(this);
-            param[i].setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
+            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
+                    LinearLayout.LayoutParams.MATCH_PARENT,
+                    LinearLayout.LayoutParams.WRAP_CONTENT
+            );
+            params.setMargins(10, 20, 10, 20);
+
+            param[i].setLayoutParams(params);
 
             param[i].setHint(paramlist[i].toString());
             param[i].setBackgroundResource(shapeemail);
             param[i].setTextColor(Color.WHITE);
             param[i].setHintTextColor(Color.WHITE);
-            param[i].setTextSize(24);
+            param[i].setTextSize(25);
 
             param[i].setPadding(15,15,15,15);
 
@@ -70,7 +76,7 @@ public class PointsDataForm extends AppCompatActivity {
                         paramlist= response.body().getGameParametersList().toArray();
                         size = paramlist.length;
                         Toast.makeText(PointsDataForm.this,"woi",Toast.LENGTH_LONG).show();
-
+                        setdata();
                     }
                 }
             }
