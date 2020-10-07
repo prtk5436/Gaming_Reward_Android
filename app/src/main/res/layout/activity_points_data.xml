@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/game"
-    tools:context=".PointsData">
+    tools:context=".PointsForm.PointsDataForm">
     <ImageView
 
         android:id="@+id/gameIcon"
@@ -37,6 +37,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
     <EditText
+
+
         android:id="@+id/edt_pubg_kills"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -50,7 +52,7 @@
         android:textColor="@color/white"
         android:textColorHighlight="@color/white"
         android:textColorHint="@color/white"
-        android:visibility="visible"
+        android:visibility="gone"
         />
         <EditText
             android:id="@+id/edt_pubg_rank"
@@ -66,7 +68,7 @@
             android:textColor="@color/white"
             android:textColorHighlight="@color/white"
             android:textColorHint="@color/white"
-            android:visibility="visible"
+            android:visibility="gone"
             />
     </LinearLayout>
     <TextView

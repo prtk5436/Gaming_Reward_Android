@@ -12,6 +12,19 @@ public class GameList {
     @Expose
     private String gameName;
 
+    public String getGameimage() {
+        return gameimage;
+    }
+
+    public void setGameimage(String gameimage) {
+        this.gameimage = gameimage;
+    }
+
+    @SerializedName("game_image")
+    @Expose
+    private String gameimage;
+
+
     public String getGameId() {
         return gameId;
     }

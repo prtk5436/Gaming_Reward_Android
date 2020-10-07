@@ -5,6 +5,8 @@ import com.example.gamingrewardandroid.Dashboard.GameListInput;
 import com.example.gamingrewardandroid.Dashboard.GameListOutput;
 import com.example.gamingrewardandroid.LoginStudent.LoginStudentInput;
 import com.example.gamingrewardandroid.LoginStudent.LoginStudentOutput;
+import com.example.gamingrewardandroid.PointsForm.ReawardParameterOutput;
+import com.example.gamingrewardandroid.PointsForm.RewardParameterInput;
 import com.example.gamingrewardandroid.Registration.StudentRegistraionOutput;
 import com.example.gamingrewardandroid.Registration.StudentRegistrationInput;
 import com.example.gamingrewardandroid.StudentsPoints.InputPoints;
@@ -33,6 +35,8 @@ public interface AuthenticationApi {
     @POST(WebserviceConstant.STUDENT_REGISTRATION)
     Call<StudentRegistraionOutput> getRegisterResponse(@Body StudentRegistrationInput r);
 
+    @POST(WebserviceConstant.GAME_API)
+    Call<ReawardParameterOutput> getGameParameterList(@Body RewardParameterInput g);
 
 
 }

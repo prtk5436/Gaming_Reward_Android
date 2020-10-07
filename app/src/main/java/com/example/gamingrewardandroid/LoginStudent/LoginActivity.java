@@ -26,6 +26,7 @@ import com.example.gamingrewardandroid.Dashboard.GameListInput;
 import com.example.gamingrewardandroid.Dashboard.GameListOutput;
 import com.example.gamingrewardandroid.FeatureContraoller;
 import com.example.gamingrewardandroid.MyFeatureController;
+import com.example.gamingrewardandroid.PointsForm.PointsDataForm;
 import com.example.gamingrewardandroid.R;
 import com.example.gamingrewardandroid.Registration.RegistrationActivity;
 import com.example.gamingrewardandroid.WebServiceClasses.ApiClient;
@@ -202,6 +203,8 @@ public class LoginActivity extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(),"Welcome  "+response.body().getPosts().get(0).getFName(),Toast.LENGTH_LONG).show();
 
                         Intent i = new Intent(LoginActivity.this, DashboardActivity.class);
+                        //Intent i = new Intent(LoginActivity.this, PointsDataForm.class);
+
            //             i.putExtra("gname",gamename);
 
                         startActivity(i);

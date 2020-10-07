@@ -1,23 +1,30 @@
 package com.example.gamingrewardandroid.Dashboard;
+import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.gamingrewardandroid.FeatureContraoller;
-import com.example.gamingrewardandroid.PointsData;
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.bumptech.glide.request.RequestOptions;
+import com.example.gamingrewardandroid.PointsForm.PointsDataForm;
 import com.example.gamingrewardandroid.R;
 
 public class MyGameListAdaptor extends RecyclerView.Adapter<MyGameListAdaptor.ViewHolder> {
     public String[]  gamename;
-    MyGameListAdaptor(String [] names){
+    public String[] gameimg;
+    Context context;
+    MyGameListAdaptor( String[] names, String[] gameimg,Context context){
         this.gamename=names;
-
+        this.gameimg=gameimg;
+        this.context=context;
     }
 
     @NonNull
@@ -34,13 +41,21 @@ public class MyGameListAdaptor extends RecyclerView.Adapter<MyGameListAdaptor.Vi
     @Override
     public void onBindViewHolder(@NonNull final ViewHolder holder, int position) {
         holder.gamenm.setText(gamename[position]);
+
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(view.getContext(), PointsData.class);
+                Intent intent=new Intent(view.getContext(), PointsDataForm.class);
                 view.getContext().startActivity(intent);
             }
         });
+        Glide.with(context)
+                .load(gameimg[position])
+                .apply(RequestOptions.circleCropTransform())
+                .thumbnail(0.5f)
+                .placeholder(R.drawable.images)
+                .diskCacheStrategy(DiskCacheStrategy.NONE)
+                .into(holder.gameimage);
 
     }
 
@@ -51,11 +66,13 @@ public class MyGameListAdaptor extends RecyclerView.Adapter<MyGameListAdaptor.Vi
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         public TextView gamenm;
+        ImageView gameimage;
         RelativeLayout gamelayout;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             gamelayout=itemView.findViewById(R.id.gamelayout);
             gamenm=itemView.findViewById(R.id.txt_gamename);
+            gameimage=itemView.findViewById(R.id.imageView_game);
         }
     }
 }
