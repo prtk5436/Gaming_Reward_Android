@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/game"
+    tools:context=".SuggestGame.SuggestGame">
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/gameicon"
+        android:layout_width="50dp"
+        android:layout_marginLeft="20dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:src="@drawable/images"
+        android:layout_height="50dp"/>
+
+    <TextView
+        android:id="@+id/txt_gamename"
+        android:text="Fill Below Information About Your Game To Add:"
+
+        android:textStyle="bold"
+        android:layout_marginTop="20dp"
+        android:layout_below="@id/gameicon"
+        android:gravity="center_horizontal"
+
+        android:textSize="20dp"
+        android:textColor="@android:color/white"
+        android:fontFamily="casual"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <LinearLayout
+        android:id="@+id/layout"
+        android:visibility="visible"
+        android:layout_marginTop="20dp"
+        android:orientation="vertical"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_below="@id/txt_gamename"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <EditText
+
+            android:id="@+id/edt_game_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/shapeemail"
+            android:hint="Name Of The Game"
+            android:textStyle="bold"
+            android:padding="15dp"
+            android:textColor="@color/white"
+            android:textColorHighlight="@color/white"
+            android:textColorHint="@color/white"
+            android:visibility="visible"
+            />
+        <EditText
+            android:id="@+id/edt_parameter1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/shapeemail"
+            android:hint="Parameter 1"
+            android:textStyle="bold"
+            android:padding="15dp"
+            android:textColor="@color/white"
+            android:textColorHighlight="@color/white"
+            android:textColorHint="@color/white"
+            android:visibility="visible"
+            />
+        <EditText
+            android:id="@+id/edt_parameter2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/shapeemail"
+            android:hint="Parameter 2"
+            android:textStyle="bold"
+            android:padding="15dp"
+            android:textColor="@color/white"
+            android:textColorHighlight="@color/white"
+            android:textColorHint="@color/white"
+            android:visibility="visible"
+            />
+        <EditText
+            android:id="@+id/edt_parameter3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/shapeemail"
+            android:hint="Parameter 3"
+            android:textStyle="bold"
+            android:padding="15dp"
+            android:textColor="@color/white"
+            android:textColorHighlight="@color/white"
+            android:textColorHint="@color/white"
+            android:visibility="visible"
+            />
+    </LinearLayout>
+    <TextView
+        android:onClick="onImageupload"
+        android:layout_alignBaseline="@id/screenShot"
+        android:id="@+id/scr"
+        android:layout_marginLeft="30dp"
+        android:text="Game Logo:"
+        android:textStyle="bold"
+        android:layout_marginTop="20dp"
+        android:layout_below="@id/layout"
+
+        android:textSize="20dp"
+        android:textColor="@android:color/white"
+        android:fontFamily="casual"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <ImageView
+
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/layout"
+        android:layout_marginLeft="20dp"
+        android:src="@drawable/camera"
+        android:padding="5dp"
+        android:layout_toRightOf="@id/scr"
+        android:id="@+id/screenShot"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <Button
+        android:onClick="onSubmitReq"
+        android:layout_margin="30dp"
+        android:layout_below="@id/screenShot"
+        android:id="@+id/btnsubmitscore"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/shapelogin"
+        android:padding="15dp"
+        android:shadowColor="@android:color/transparent"
+        android:text="Submit Information"
+        android:textColor="#fff"
+        android:textStyle="bold"
+        android:visibility="visible" />
+
+</RelativeLayout>

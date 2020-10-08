@@ -18,6 +18,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.RatingBar;
@@ -39,6 +40,7 @@ import com.example.gamingrewardandroid.Model.Posts1;
 import com.example.gamingrewardandroid.R;
 import com.example.gamingrewardandroid.StudentsPoints.InputPoints;
 import com.example.gamingrewardandroid.StudentsPoints.OutputPoints;
+import com.example.gamingrewardandroid.SuggestGame.SuggestGame;
 import com.example.gamingrewardandroid.WebServiceClasses.ApiClient;
 import com.google.gson.Gson;
 
@@ -53,8 +55,8 @@ import static android.content.Context.MODE_PRIVATE;
 
 
 //pramod khandare10-01-2019
-public class DashboardActivity extends AppCompatActivity {
-    private Spinner sportlist;
+public class DashboardActivity extends AppCompatActivity{
+    ImageButton btnoption;
     RecyclerView recyclerView;
   private ListView playerslist;
   private Button btnassign;
@@ -127,9 +129,10 @@ public class DashboardActivity extends AppCompatActivity {
     }
 
     private void init() {
+        btnoption=findViewById(R.id.btn_option);
         myName = (TextView)findViewById(R.id.myName);
         myPoints = (TextView)findViewById(R.id.myPoints);
-        sportlist = (Spinner)findViewById(R.id.sportlist);
+        //sportlist = (Spinner)findViewById(R.id.sportlist);
         //btnassign = (Button)findViewById(R.id.btnassign);
         recyclerView=findViewById(R.id.recycler_gamelist);
         et_P_number = (EditText)findViewById(R.id.et_P_number);
@@ -200,5 +203,9 @@ public class DashboardActivity extends AppCompatActivity {
                 Log.d("myResponse:",  "MSG"+t.toString());
             }
         });
+    }
+
+    public void onOption(View view) {
+        startActivity(new Intent(DashboardActivity.this,SuggestGame.class));
     }
 }

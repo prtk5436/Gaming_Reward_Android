@@ -11,6 +11,8 @@ import com.example.gamingrewardandroid.Registration.StudentRegistraionOutput;
 import com.example.gamingrewardandroid.Registration.StudentRegistrationInput;
 import com.example.gamingrewardandroid.StudentsPoints.InputPoints;
 import com.example.gamingrewardandroid.StudentsPoints.OutputPoints;
+import com.example.gamingrewardandroid.SuggestGame.SuggestGameInput;
+import com.example.gamingrewardandroid.SuggestGame.SuggestGameOutput;
 import com.example.gamingrewardandroid.WebServiceClasses.WebserviceConstant;
 
 import retrofit2.Call;
@@ -37,6 +39,8 @@ public interface AuthenticationApi {
 
     @POST(WebserviceConstant.GAME_API)
     Call<ReawardParameterOutput> getGameParameterList(@Body RewardParameterInput g);
+    @POST(WebserviceConstant.GAME_API)
+    Call<SuggestGameOutput> suggestGame(@Body SuggestGameInput g);
 
 
 }
