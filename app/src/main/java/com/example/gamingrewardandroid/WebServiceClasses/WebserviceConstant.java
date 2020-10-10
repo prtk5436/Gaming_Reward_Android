@@ -11,12 +11,12 @@ public class WebserviceConstant {
 
     public static final String HTTP_BASE_URL1 = "https://";
     //public static final String BASE_URL = "https://test.smartcookie.in/";
-    public static String BASE_URL = "https://dev.smartcookie.in/";
+    public static String BASE_URL = "https://dev.smartcookie.in";
      //public static final String BASE_URL = "https://smartcookie.in/";
      public static String BASE_URL1 = "smartcookie.in/core/";
 
    //public static String BASE_URL = "http://192.168.1.161/";
-   public static final String STUDENT_LOGIN_V3 = "core/Version3/login_student_V4.php";
+   public static final String STUDENT_LOGIN_V3 = "core/webservice_game.php";
     public static final String SPECTATOR_LOGIN = "core/Version4/spectator_volunteer_login_ws_V2.php";
     public static final String SPECTATOR_REGISTRATION = "core/Version4/SpectatorRegistrationAPI_V2.php";
     public static final String STUDENT_REGISTRATION = "core/Version4/quickregistration_ws_v1.php";

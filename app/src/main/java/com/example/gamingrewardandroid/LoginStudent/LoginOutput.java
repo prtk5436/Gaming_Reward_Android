@@ -1,22 +1,20 @@
 package com.example.gamingrewardandroid.LoginStudent;
 
-
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
-public class LoginStudentOutput {
-
+public class LoginOutput {
     @SerializedName("responseStatus")
     @Expose
     private Integer responseStatus;
     @SerializedName("responseMessage")
     @Expose
     private String responseMessage;
-    @SerializedName("posts")
+    @SerializedName("user_details")
     @Expose
-    private List<StudentModel> posts = null;
+    private List<UserDetail> userDetails = null;
 
     public Integer getResponseStatus() {
         return responseStatus;
@@ -34,11 +32,11 @@ public class LoginStudentOutput {
         this.responseMessage = responseMessage;
     }
 
-    public List<StudentModel> getPosts() {
-        return posts;
+    public List<UserDetail> getUserDetails() {
+        return userDetails;
     }
 
-    public void setPosts(List<StudentModel> posts) {
-        this.posts = posts;
+    public void setUserDetails(List<UserDetail> userDetails) {
+        this.userDetails = userDetails;
     }
 }

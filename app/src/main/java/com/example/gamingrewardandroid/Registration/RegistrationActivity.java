@@ -162,33 +162,28 @@ private Spinner spintype;
             } else if (mobile.equals("")) {
                 Toast.makeText(getApplicationContext(), "Please Enter Mobile Number", Toast.LENGTH_LONG).show();
             }
-            else if (pass.equals("")) {
-                Toast.makeText(getApplicationContext(), "Please Enter Password", Toast.LENGTH_LONG).show();
+            else if (!pass.equals(schoolId)) {
+                Toast.makeText(getApplicationContext(), "Please Enter Same Password and Confirm password", Toast.LENGTH_LONG).show();
             }   else if (cattype.equals("Select user Type")) {
                 Toast.makeText(getApplicationContext(), "Please Select User Type", Toast.LENGTH_LONG).show();
             }else if (schoolId.equals("")) {
-                Toast.makeText(getApplicationContext(), "Please Enter School Id", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "Please Enter confirm password", Toast.LENGTH_LONG).show();
             } else
             {
                 pBar2.setVisibility(View.VISIBLE);
-               /* InputParameterRegister r = new InputParameterRegister();
-                r.setMobile(mobile);
-                r.setSchool_id(schoolId);
-                r.setPassword(pass);
-                r.setUser_name(name);
-                r.setCategory(cattype);  */
 
                 StudentRegistrationInput r = new StudentRegistrationInput();
-                r.setPhonenumber(mobile);
-                r.setSchoolId(schoolId);
-                r.setPassword(pass);
-                r.setFirstname(name);
-                r.setType("student");
-                r.setPlatformSource("Android");
-                r.setMiddlename("");
-                r.setCountrycode("91");
-                r.setEmailid(email);
-                r.setLastname(".");
+                r.setOperation("gamer_registration");
+
+                r.setPassWord(pass);
+                r.setName(name);
+                r.setMobileNumber(mobile);
+
+                r.setPlatformForGames("Android");
+
+
+                r.setEmail(email);
+
 
 
                 Log.e("TAG", "registration input: "+new Gson().toJson(r) );
@@ -241,7 +236,7 @@ private Spinner spintype;
         etemail=(EditText)findViewById(R.id.etemail);
         et_pass=(EditText)findViewById(R.id.et_pass);
         et_mobile=(EditText)findViewById(R.id.et_mobile);
-        etSchoolId=(EditText)findViewById(R.id.etSchoolId);
+        etSchoolId=(EditText)findViewById(R.id.et_cnfpass);
         pBar2 = (ProgressBar) findViewById(R.id.pBar2);
         tv1=(TextView)findViewById(R.id.tvlogin);
         spintype=(Spinner) findViewById(R.id.spinner_type);

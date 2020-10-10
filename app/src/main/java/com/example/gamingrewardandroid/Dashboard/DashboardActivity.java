@@ -20,6 +20,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ListView;
+import android.widget.PopupMenu;
 import android.widget.ProgressBar;
 import android.widget.RatingBar;
 import android.widget.Spinner;
@@ -105,7 +106,7 @@ public class DashboardActivity extends AppCompatActivity{
 
 
 
-        myName.setText(FeatureContraoller.getInstance().getFullName());
+        myName.setText(FeatureContraoller.getInstance().getUserDetails().get(0).getName());
 
         MyGameListAdaptor gameListAdaptor=new MyGameListAdaptor(gamename,gameimg,DashboardActivity.this,id);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -144,68 +145,52 @@ public class DashboardActivity extends AppCompatActivity{
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
     private void getStudentPoints() {
+        AuthenticationApi api=ApiClient.getClient().create(AuthenticationApi.class);
+        InputPoints i=new InputPoints();
+        i.setOperation("gamer_point_count");
+        String id= FeatureContraoller.getInstance().getUserid();
+        i.setId(id);
 
-       // studentModel = FeatureContraoller.getInstance().getStudentModel().get(0);
-        pref = getSharedPreferences("user_details",MODE_PRIVATE);
-        editor = pref.edit();
-
-        String memberID = pref.getString("memberID","");
-        String PRN = pref.getString("PRN","");
-        String schoolID = pref.getString("schoolID","");
-
-
-        InputPoints inputPoints = new InputPoints();
-        inputPoints.setSchoolId(schoolID);
-
-        inputPoints.setStudentId(Integer.parseInt(PRN));
-
-        inputPoints.setStudentPRN(PRN);
-
-        Log.e("TAG", "Points Input : "+new Gson().toJson(inputPoints) );
-
-        AuthenticationApi authenticationApi = ApiClient.getClient().create(AuthenticationApi.class);
-        Call<OutputPoints> call=authenticationApi.getStudentPoints(inputPoints);
+        Call<OutputPoints> call=api.getStudentPoints(i);
         call.enqueue(new Callback<OutputPoints>() {
             @Override
             public void onResponse(Call<OutputPoints> call, Response<OutputPoints> response) {
+                if (response.body()!=null){
+                        if (response.body().getResponseStatus() == 200) {
+                            String BrownPoints = response.body().getTotlePoints();
+                            myPoints.setText(BrownPoints);
 
-                Log.e("TAG", "Points Response : "+new Gson().toJson(response.body()) );
-
-                //swipeLayout.setRefreshing(false);
-                if(response.body() != null) {
-                    if (response.body().getResponseStatus() == 200) {
-                        String BrownPoints = response.body().getPosts().get(0).getBrownPoint();
-                      myPoints.setText(BrownPoints);
-                    } else {
-                        CommonFunctions.showToast(response.body().getResponseMessage());
-                    }
-                }else{
-                    CommonFunctions.showToast("Server Error");
+                        }
                 }
             }
 
             @Override
             public void onFailure(Call<OutputPoints> call, Throwable t) {
-                Log.d("myResponse:",  "MSG"+t.toString());
+
             }
         });
+
+
     }
 
     public void onOption(View view) {
-        startActivity(new Intent(DashboardActivity.this,SuggestGame.class));
+        PopupMenu popupMenu=new PopupMenu(DashboardActivity.this,view);
+        popupMenu.getMenuInflater().inflate(R.menu.a,popupMenu.getMenu());
+        popupMenu.show();
+        popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem menuItem) {
+                switch (menuItem.getItemId()){
+                    case R.id.menu_new_game:
+                        startActivity(new Intent(DashboardActivity.this,SuggestGame.class));
+                        finish();
+                        return false;
+
+                }
+                return false;
+            }
+        });
+        //startActivity(new Intent(DashboardActivity.this,SuggestGame.class));
     }
 }

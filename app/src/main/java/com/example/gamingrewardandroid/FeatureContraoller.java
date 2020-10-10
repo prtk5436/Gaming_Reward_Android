@@ -3,12 +3,22 @@ package com.example.gamingrewardandroid;
 
 import com.example.gamingrewardandroid.Dashboard.GameList;
 import com.example.gamingrewardandroid.LoginStudent.StudentModel;
+import com.example.gamingrewardandroid.LoginStudent.UserDetail;
 
 import java.util.ArrayList;
 
 public class FeatureContraoller {
     public static FeatureContraoller getFeatureContraoller() {
         return featureContraoller;
+    }
+    String userid;
+
+    public String getUserid() {
+        return userid;
+    }
+
+    public void setUserid(String userid) {
+        this.userid = userid;
     }
 
     public static void setFeatureContraoller(FeatureContraoller featureContraoller) {
@@ -30,6 +40,16 @@ public class FeatureContraoller {
     //PackageInformation.InfoObject selectedGame = new PackageInformation.InfoObject();
    public String memberId, schoolId, fullName, PRN;
     //public StudentModel studentModel;
+    public  ArrayList<UserDetail> userDetails=new ArrayList<>();
+
+    public ArrayList<UserDetail> getUserDetails() {
+        return userDetails;
+    }
+
+    public void setUserDetails(ArrayList<UserDetail> userDetails) {
+        this.userDetails = userDetails;
+    }
+
     public ArrayList<StudentModel> studentModel = new ArrayList<>();
     public  ArrayList<GameList> gamelist=new ArrayList<>();
 

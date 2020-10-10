@@ -6,37 +6,27 @@ import com.google.gson.annotations.SerializedName;
 
 public class InputPoints {
 
-    @SerializedName("student_id")
+    @SerializedName("operation")
     @Expose
-    private int studentId;
-    @SerializedName("student_PRN")
+    private String operation;
+    @SerializedName("id")
     @Expose
-    private String studentPRN;
-    @SerializedName("school_id")
-    @Expose
-    private String schoolId;
+    private String id;
 
-    public int getStudentId() {
-        return studentId;
+    public String getOperation() {
+        return operation;
     }
 
-    public void setStudentId(int studentId) {
-        this.studentId = studentId;
+    public void setOperation(String operation) {
+        this.operation = operation;
     }
 
-    public String getStudentPRN() {
-        return studentPRN;
+    public String getId() {
+        return id;
     }
 
-    public void setStudentPRN(String studentPRN) {
-        this.studentPRN = studentPRN;
+    public void setId(String id) {
+        this.id = id;
     }
 
-    public String getSchoolId() {
-        return schoolId;
-    }
-
-    public void setSchoolId(String schoolId) {
-        this.schoolId = schoolId;
-    }
 }

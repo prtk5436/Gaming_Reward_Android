@@ -13,9 +13,9 @@ public class OutputPoints {
     @SerializedName("responseMessage")
     @Expose
     private String responseMessage;
-    @SerializedName("posts")
+    @SerializedName("Totle_Points")
     @Expose
-    private List<PointsModel> posts = null;
+    private String totlePoints;
 
     public Integer getResponseStatus() {
         return responseStatus;
@@ -33,11 +33,12 @@ public class OutputPoints {
         this.responseMessage = responseMessage;
     }
 
-    public List<PointsModel> getPosts() {
-        return posts;
+    public String getTotlePoints() {
+        return totlePoints;
     }
 
-    public void setPosts(List<PointsModel> posts) {
-        this.posts = posts;
+    public void setTotlePoints(String totlePoints) {
+        this.totlePoints = totlePoints;
     }
+
 }

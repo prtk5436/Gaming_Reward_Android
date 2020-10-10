@@ -3,8 +3,8 @@ package com.example.gamingrewardandroid;
 
 import com.example.gamingrewardandroid.Dashboard.GameListInput;
 import com.example.gamingrewardandroid.Dashboard.GameListOutput;
-import com.example.gamingrewardandroid.LoginStudent.LoginStudentInput;
-import com.example.gamingrewardandroid.LoginStudent.LoginStudentOutput;
+import com.example.gamingrewardandroid.LoginStudent.LoginInput;
+import com.example.gamingrewardandroid.LoginStudent.LoginOutput;
 import com.example.gamingrewardandroid.PointsForm.ReawardParameterOutput;
 import com.example.gamingrewardandroid.PointsForm.RewardParameterInput;
 import com.example.gamingrewardandroid.Registration.StudentRegistraionOutput;
@@ -21,20 +21,16 @@ import retrofit2.http.POST;
 
 public interface AuthenticationApi {
 
-   // @Headers("Content-Type: application/json")
-  //  @POST(WebserviceConstant.SPECTATOR_LOGIN)
-   // Call<LoginResponse> getLoginResponse(@Body InputParameterResponse response);
 
-    @POST(WebserviceConstant.STUDENT_LOGIN_V3)
-    Call<LoginStudentOutput> getLoginResponse(@Body LoginStudentInput response);
     @POST(WebserviceConstant.STUDENT_POINTS)
     Call<OutputPoints> getStudentPoints(@Body InputPoints d);
-
+    @POST ("core/webservice_game.php")
+    Call<LoginOutput> getlogin(@Body LoginInput i);
     @POST(WebserviceConstant.GAME_API)
     Call<GameListOutput> getgamelist(@Body GameListInput g);
 
 
-    @POST(WebserviceConstant.STUDENT_REGISTRATION)
+    @POST("core/webservice_game.php")
     Call<StudentRegistraionOutput> getRegisterResponse(@Body StudentRegistrationInput r);
 
     @POST(WebserviceConstant.GAME_API)

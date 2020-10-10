@@ -1,13 +1,12 @@
-package com.example.gamingrewardandroid.Registration;
-
+package com.example.gamingrewardandroid.LoginStudent;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class StudentRegistrationInput {
-    @SerializedName("operation")
+public class UserDetail {
+    @SerializedName("id")
     @Expose
-    private String operation;
+    private String id;
     @SerializedName("Name")
     @Expose
     private String name;
@@ -20,9 +19,6 @@ public class StudentRegistrationInput {
     @SerializedName("Platform_for_Games")
     @Expose
     private String platformForGames;
-    @SerializedName("Flag_Terms_and_condition")
-    @Expose
-    private String flagTermsAndCondition;
     @SerializedName("PassWord")
     @Expose
     private String passWord;
@@ -41,19 +37,25 @@ public class StudentRegistrationInput {
     @SerializedName("country")
     @Expose
     private String country;
+    @SerializedName("Flag_Terms_and_condition")
+    @Expose
+    private String flagTermsAndCondition;
     @SerializedName("Preffred_games")
     @Expose
     private String preffredGames;
     @SerializedName("Smartcookie_member_id")
     @Expose
     private String smartcookieMemberId;
+    @SerializedName("registration_date")
+    @Expose
+    private String registrationDate;
 
-    public String getOperation() {
-        return operation;
+    public String getId() {
+        return id;
     }
 
-    public void setOperation(String operation) {
-        this.operation = operation;
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -86,14 +88,6 @@ public class StudentRegistrationInput {
 
     public void setPlatformForGames(String platformForGames) {
         this.platformForGames = platformForGames;
-    }
-
-    public String getFlagTermsAndCondition() {
-        return flagTermsAndCondition;
-    }
-
-    public void setFlagTermsAndCondition(String flagTermsAndCondition) {
-        this.flagTermsAndCondition = flagTermsAndCondition;
     }
 
     public String getPassWord() {
@@ -144,6 +138,14 @@ public class StudentRegistrationInput {
         this.country = country;
     }
 
+    public String getFlagTermsAndCondition() {
+        return flagTermsAndCondition;
+    }
+
+    public void setFlagTermsAndCondition(String flagTermsAndCondition) {
+        this.flagTermsAndCondition = flagTermsAndCondition;
+    }
+
     public String getPreffredGames() {
         return preffredGames;
     }
@@ -160,4 +162,12 @@ public class StudentRegistrationInput {
         this.smartcookieMemberId = smartcookieMemberId;
     }
 
+    public String getRegistrationDate() {
+        return registrationDate;
+    }
+
+    public void setRegistrationDate(String registrationDate) {
+        this.registrationDate = registrationDate;
+    }
 }
+

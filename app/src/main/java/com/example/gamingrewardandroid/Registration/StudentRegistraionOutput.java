@@ -12,9 +12,6 @@ public class StudentRegistraionOutput {
     @SerializedName("responseMessage")
     @Expose
     private String responseMessage;
-    @SerializedName("mailstatus")
-    @Expose
-    private String mailstatus;
 
     /* @SerializedName("posts")
     @Expose
@@ -36,20 +33,4 @@ public class StudentRegistraionOutput {
         this.responseMessage = responseMessage;
     }
 
-    public String getMailstatus() {
-        return mailstatus;
-    }
-
-    public void setMailstatus(String mailstatus) {
-        this.mailstatus = mailstatus;
-    }
-
-  /*  public List<Post> getPosts() {
-        return posts;
-    }
-
-    public void setPosts(List<Post> posts) {
-        this.posts = posts;
-    }
-*/
 }

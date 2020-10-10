@@ -50,6 +50,7 @@ public class LoginActivity extends AppCompatActivity {
     String [] gamename;
     private RadioGroup rdg_app_type;
     SharedPreferences.Editor editor;
+    public  ArrayList<UserDetail> userDetails;
     private RadioButton rbtn_dev,rbtn_test,rbtn_production;
     ArrayList <GameList> gameLists=new ArrayList<>();
     @RequiresApi(api = Build.VERSION_CODES.GINGERBREAD)
@@ -62,7 +63,7 @@ public class LoginActivity extends AppCompatActivity {
         pref = getSharedPreferences("user_details",MODE_PRIVATE);
         editor = pref.edit();
         //Env start
-        if(rdg_app_type.getVisibility() == View.VISIBLE) {
+      /*  if(rdg_app_type.getVisibility() == View.VISIBLE) {
             if (pref.getString("apptype", "").equals(WebserviceConstant.TEST)) {
                 rbtn_test.setChecked(true);
                 WebserviceConstant.setAppType(WebserviceConstant.TEST);
@@ -98,7 +99,7 @@ public class LoginActivity extends AppCompatActivity {
                         break;
                 }
             }
-        });
+        });*/
         //Env end
 
         tv1.setOnClickListener(new View.OnClickListener() {
@@ -109,29 +110,19 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
         String name = pref.getString("username","");
-        String school = pref.getString("schoolid","");
+        //String school = pref.getString("schoolid","");
         String pass = pref.getString("password","");
         // final String category = pref.getString("category","");
-        if( name != null && pass != null && !name.isEmpty() && !pass.isEmpty()){
-            tv1.setVisibility(GONE);
-            Uname.setVisibility(GONE);
-            schoolId.setVisibility(GONE);
-            password.setVisibility(GONE);
-            btnlogin.setVisibility(GONE);
-            pgsBar.setVisibility(View.VISIBLE);
-            pgsBar.setVisibility(View.VISIBLE);
 
-            loginStudent(name, school, pass);
-        }
 
         btnlogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 getlistgames();
                 String name = Uname.getText().toString().trim();
-                String schoolid = schoolId.getText().toString().trim();
+        //        String schoolid = schoolId.getText().toString().trim();
                 String pass = password.getText().toString().trim();
-                RadioGroup radioGroup = (RadioGroup) findViewById(R.id.radioGrp);
+
                 // String radiovalue = ((RadioButton) findViewById(radioGroup.getCheckedRadioButtonId())).getText().toString();
 
                 /*editor.putString("username", name);
@@ -143,13 +134,11 @@ public class LoginActivity extends AppCompatActivity {
 
                 if (name.equals("")) {
                     Toast.makeText(getApplicationContext(), "Please Enter Phone Number", Toast.LENGTH_LONG).show();
-                } else if (schoolid.equals("")) {
-                    Toast.makeText(getApplicationContext(), "Please Enter School Id", Toast.LENGTH_LONG).show();
                 } else if (pass.equals("")) {
                     Toast.makeText(getApplicationContext(), "Please Enter Password", Toast.LENGTH_LONG).show();
                 } else{
                     // login1(name,schoolid, pass);
-                    loginStudent(name,schoolid, pass);
+                    loginStudent(name, pass);
                     pgsBar.setVisibility(v.VISIBLE);
                 }
             }
@@ -157,76 +146,39 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
-    private void loginStudent(String name, String schoolid, String pass) {
-        pgsBar.setVisibility(View.VISIBLE);
-        LoginStudentInput i = new LoginStudentInput();
-        i.setCollegeCode(schoolid);
-        i.setCountryCode("+91");
-        i.setDeviceDetails("");
-        i.setDeviceType("android");
-        i.setMethod("ANDROID");
-        i.setPlatformOS("ANDROID");
-        i.setUserName(name);
-        i.setUserPass(pass);
-        i.setUserType("Mobile-No");
-
-        Log.e("TAG", "response 33: "+new Gson().toJson(i) );
-
-        AuthenticationApi api1 = ApiClient.getClient().create(AuthenticationApi.class);
-        Call<LoginStudentOutput> call = api1.getLoginResponse(i);
-
-        call.enqueue(new Callback<LoginStudentOutput>() {
+    private void loginStudent(String name, String pass) {
+        AuthenticationApi api=ApiClient.getClient().create(AuthenticationApi.class);
+        LoginInput i=new LoginInput();
+        i.setOperation("gamer_login");
+        i.setMobileNumber(name);
+        i.setEmail("");
+        i.setPassWord(pass);
+        Call<LoginOutput> call=api.getlogin(i);
+        call.enqueue(new Callback<LoginOutput>() {
             @Override
-            public void onResponse(Call<LoginStudentOutput> call, Response<LoginStudentOutput> response) {
-                pgsBar.setVisibility(GONE);
-                if(response.body()!= null){
-                    if(response.body().getResponseStatus() == 200){
+            public void onResponse(Call<LoginOutput> call, Response<LoginOutput> response) {
+                if (response.body()!=null){
+                    if (response.body().getResponseStatus()==200){
+                            userDetails= (ArrayList<UserDetail>) response.body().getUserDetails();
 
-                        Log.e("TAG", "response Login "+new Gson().toJson(response) );
+                            FeatureContraoller.getInstance().setUserid(userDetails.get(0).getId());
+                            FeatureContraoller.getInstance().setUserDetails((ArrayList<UserDetail>) response.body().getUserDetails());
+                        Toast.makeText(LoginActivity.this,response.body().getResponseMessage().toString(),Toast.LENGTH_LONG).show();
 
-                        //  FeatureContraoller.getInstance().setStudentModel(response.body().getPosts().get(0));
+                        startActivity(new Intent(LoginActivity.this,DashboardActivity.class));
+                            finish();
 
-                        FeatureContraoller.getInstance().setFullName(response.body().getPosts().get(0).getFName());
-                        FeatureContraoller.getInstance().setMemberId(String.valueOf(response.body().getPosts().get(0).getId()));
-                        FeatureContraoller.getInstance().setPRN(response.body().getPosts().get(0).getS_PRN());
-
-
-                        editor.putString("category", "SmartGamer");
-                        editor.putString("fullName",response.body().getPosts().get(0).getFName());
-                        editor.putString("PRN",response.body().getPosts().get(0).getS_PRN());
-                        editor.putString("schoolID",response.body().getPosts().get(0).getSchoolId());
-                        editor.putString("memberID", String.valueOf(response.body().getPosts().get(0).getMemberId()));
-                        editor.commit();
-
-                        MyFeatureController.getInstance().setMemberId(response.body().getPosts().get(0).getMemberId());
-
-                        Toast.makeText(getApplicationContext(),"Welcome  "+response.body().getPosts().get(0).getFName(),Toast.LENGTH_LONG).show();
-
-                        Intent i = new Intent(LoginActivity.this, DashboardActivity.class);
-                        //Intent i = new Intent(LoginActivity.this, PointsDataForm.class);
-
-           //             i.putExtra("gname",gamename);
-
-                        startActivity(i);
-                        finish();
                     }else {
-                        pgsBar.setVisibility(GONE);
-                        //CommonFunctions.showToast(response.body().getResponseMessage());
+                        Toast.makeText(LoginActivity.this,response.body().getResponseMessage().toString(),Toast.LENGTH_LONG).show();
                     }
-                }else {
-                    Toast.makeText(getApplicationContext(),"Server Error",Toast.LENGTH_LONG).show();
                 }
             }
 
             @Override
-            public void onFailure(Call<LoginStudentOutput> call, Throwable t) {
-                pgsBar.setVisibility(GONE);
-                Log.e("error",t.getMessage());
+            public void onFailure(Call<LoginOutput> call, Throwable t) {
 
             }
         });
-
-
     }
 
     private void getlistgames() {

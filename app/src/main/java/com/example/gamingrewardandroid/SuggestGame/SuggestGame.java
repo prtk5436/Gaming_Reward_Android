@@ -41,7 +41,6 @@ import retrofit2.Response;
 
 public class SuggestGame extends AppCompatActivity {
     private static final int PERMISSION_REQUEST_CODE = 1;
-
     EditText edt_gamename,edt_param1,edt_param2,edt_param3;
     ImageView gameimg;
     String base64String = "";
@@ -51,9 +50,6 @@ public class SuggestGame extends AppCompatActivity {
     String param;
     String gamename;
     String img;
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -227,7 +223,6 @@ public class SuggestGame extends AppCompatActivity {
         i.setGameParameter(param);
         i.setGameName(gamename);
 
-
         Call<SuggestGameOutput> call=api.suggestGame(i);
         call.enqueue(new Callback<SuggestGameOutput>() {
             @Override
@@ -239,14 +234,11 @@ public class SuggestGame extends AppCompatActivity {
                             finish();
                     }else {
                         Toast.makeText(SuggestGame.this,response.body().getResponseMessage(),Toast.LENGTH_LONG).show();
-
                     }
-
                 }else {
                     Toast.makeText(SuggestGame.this,"Server Error",Toast.LENGTH_LONG).show();
                 }
             }
-
             @Override
             public void onFailure(Call<SuggestGameOutput> call, Throwable t) {
 

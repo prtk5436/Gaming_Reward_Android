@@ -19,14 +19,13 @@
             android:gravity="center"
             android:orientation="vertical">
 
-            <ImageView
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_marginBottom="40dp"
-                android:src="@drawable/game_icon"
-                android:visibility="gone" />
-
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:src="@drawable/b"
+                android:layout_marginBottom="20dp"
+                android:layout_width="150dp"
+                android:layout_height="150dp"/>
             <LinearLayout
+
                 android:layout_width="wrap_content"
                 android:layout_height="30sp"
                 android:layout_marginTop="10dp"
@@ -35,16 +34,17 @@
                 android:orientation="horizontal"
                 android:paddingLeft="35dp"
                 android:paddingRight="35dp"
-                android:visibility="visible">
+                android:visibility="gone">
 
                 <RadioGroup
+
                     android:id="@+id/rdg_app_type"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:gravity="center"
                     android:orientation="horizontal"
-                    android:visibility="visible">
+                    android:visibility="gone">
 
                     <RadioButton
                         android:id="@+id/rbtn_dev"
@@ -132,6 +132,7 @@
                 android:visibility="visible" />
 
             <EditText
+
                 android:id="@+id/schoolId"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -145,7 +146,7 @@
                 android:textColor="@color/white"
                 android:textColorHighlight="@color/white"
                 android:textColorHint="@color/white"
-                android:visibility="visible" />
+                android:visibility="gone" />
 
             <EditText
                 android:id="@+id/password"

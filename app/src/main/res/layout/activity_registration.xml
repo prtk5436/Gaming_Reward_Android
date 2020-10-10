@@ -11,7 +11,23 @@
     android:gravity="center"
     android:orientation="vertical"
     android:padding="10dp">
+    <ImageView
+        android:layout_width="110dp"
+        android:src="@drawable/b"
 
+        android:layout_marginTop="-20dp"
+        android:layout_height="110dp"/>
+    <TextView
+        android:text="Registration"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:textSize="20dp"
+        android:fontFamily="casual"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="30dp"
+        android:textColor="@android:color/white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -39,7 +55,7 @@
                 android:orientation="horizontal"
                 android:paddingLeft="35dp"
                 android:paddingRight="35dp"
-                android:visibility="visible">
+                android:visibility="gone">
 
                 <RadioGroup
                     android:id="@+id/rdg_app_type"
@@ -144,22 +160,6 @@
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/etSchoolId"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:background="@drawable/shapeemail"
-                android:drawablePadding="10dp"
-                android:hint="School Id / Gaming Room Id / College Id"
-                android:inputType="text"
-                android:maxLength="10"
-                android:padding="15dp"
-                android:textColor="@color/white"
-                android:textColorHighlight="@color/white"
-                android:textColorHint="@color/white"
-                android:textStyle="bold" />
-
-            <EditText
                 android:id="@+id/et_pass"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -173,6 +173,21 @@
                 android:textColorHighlight="@color/white"
                 android:textColorHint="@color/white"
                 android:textStyle="bold" />
+            <EditText
+                android:id="@+id/et_cnfpass"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/shapeemail"
+                android:drawablePadding="10dp"
+                android:hint="Confirm password"
+                android:inputType="textPassword"
+                android:padding="15dp"
+                android:textColor="@color/white"
+                android:textColorHighlight="@color/white"
+                android:textColorHint="@color/white"
+                android:textStyle="bold" />
+
 
             <Button
                 android:id="@+id/btnRegistration"
