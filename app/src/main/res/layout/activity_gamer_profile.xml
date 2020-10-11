@@ -7,31 +7,258 @@
     android:background="@android:color/white"
     android:orientation="vertical"
     tools:context=".GamerProfileActivity">
+    <!--    <LinearLayout-->
+    <!--        android:orientation="horizontal"-->
+    <!--        android:background="#CE0AAAF4"-->
+    <!--        android:padding="10dp"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content">-->
+    <!--        <de.hdodenhof.circleimageview.CircleImageView-->
+    <!--            android:layout_width="100dp"-->
+    <!--            android:src="@drawable/b"-->
+    <!--            android:layout_height="100dp"-->
+    <!--            />-->
+    <!--        <TextView-->
+    <!--            android:text="Gamer Profile"-->
+    <!--            android:textSize="30dp"-->
+    <!--            android:textColor="@android:color/white"-->
+    <!--            android:textStyle="bold"-->
+    <!--            android:gravity="center"-->
+    <!--            android:layout_gravity="center_vertical"-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="wrap_content"/>-->
+    <!--    </LinearLayout>-->
+    <!--    <LinearLayout-->
+    <!--        android:orientation="horizontal"-->
+    <!--        android:padding="10dp"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content">-->
+    <!--    </LinearLayout>-->
     <LinearLayout
-        android:orientation="horizontal"
-        android:background="#CE0AAAF4"
-        android:padding="10dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:layout_width="100dp"
-            android:src="@drawable/b"
-            android:layout_height="100dp"
-            />
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="center"
+        android:background="@drawable/game">
         <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:text="Gamer Profile"
             android:textSize="30dp"
-            android:textColor="@android:color/white"
-            android:textStyle="bold"
-            android:gravity="center"
-            android:layout_gravity="center_vertical"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_gravity="center"
+            android:textColor="@color/white"
+            android:textStyle="bold" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:src="@drawable/b"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="20dp"
+            />
+
+        <ImageView
+            android:id="@+id/btn_edt"
+            android:layout_width="60dp"
+            android:layout_height="51dp"
+            android:layout_gravity="right"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="10dp"
+            app:srcCompat="@android:drawable/ic_menu_edit"
+            android:onClick="btnEdit"/>
     </LinearLayout>
-    <LinearLayout
-        android:orientation="horizontal"
-        android:padding="10dp"
-        android:layout_width="match_parent"
+    <ScrollView
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content">
-    </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Gamer Name"
+                android:fontFamily="casual"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:textSize="18dp"/>
+            <EditText
+                android:id="@+id/edt_gamername"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Aniket Varma"
+                android:textSize="18dp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                />
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="1dp"
+                android:background="#E8E8E8"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Phone"
+                android:fontFamily="casual"
+                android:textSize="18dp"
+                android:layout_marginTop="4dp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                />
+            <EditText
+                android:id="@+id/edt_gamerphone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="8182838485"
+                android:textSize="18dp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                />
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="1dp"
+                android:background="#E8E8E8"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Email"
+                android:fontFamily="casual"
+                android:textSize="18dp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:layout_marginTop="4dp"/>
+            <EditText
+                android:id="@+id/edt_gameremail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="xyz@gmail.com"
+                android:textStyle="bold"
+                android:textColor="@color/black"/>
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="1dp"
+                android:background="#E8E8E8"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Password"
+                android:fontFamily="casual"
+                android:textSize="18dp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:layout_marginTop="4dp"/>
+            <EditText
+                android:id="@+id/edt_gamerpass"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:textSize="18dp"
+                android:text="123456"/>
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="1dp"
+                android:background="#E8E8E8"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Address"
+                android:fontFamily="casual"
+                android:textSize="18dp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:layout_marginTop="4dp"/>
+            <EditText
+                android:id="@+id/edt_gameradd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+               android:textSize="18dp"
+                android:text="xyz"/>
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="1dp"
+                android:background="#E8E8E8"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="City"
+                android:fontFamily="casual"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:textSize="18dp"
+                android:layout_marginTop="4dp"/>
+            <EditText
+                android:id="@+id/edt_gamercity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:textSize="18dp"
+                android:text="Dhule"/>
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="1dp"
+                android:background="#E8E8E8"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="State"
+                android:fontFamily="casual"
+                android:textSize="18dp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:layout_marginTop="4dp"/>
+            <EditText
+                android:id="@+id/edt_gamerstate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:textSize="18dp"
+                android:text="Maharashtra"/>
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="1dp"
+                android:background="#E8E8E8"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Country"
+                android:fontFamily="casual"
+                android:textSize="18dp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:layout_marginTop="4dp"/>
+            <EditText
+                android:id="@+id/edt_gamercountry"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:textSize="18dp"
+                android:text="India"/>
+
+            <Button
+                android:id="@+id/btn_update"
+                android:onClick="onUpdate"
+                android:layout_width="130dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Update "
+                android:textSize="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="40dp"
+                android:textColor="@color/white"
+                android:background="@drawable/shapeprf" />
+        </LinearLayout>
+    </ScrollView>
 </LinearLayout>

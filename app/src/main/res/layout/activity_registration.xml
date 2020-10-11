@@ -17,6 +17,7 @@
 
         android:layout_marginTop="-20dp"
         android:layout_height="110dp"/>
+
     <TextView
         android:text="Registration"
         android:textStyle="bold"
@@ -200,7 +201,7 @@
                 android:background="@drawable/shapelogin"
                 android:padding="15dp"
                 android:shadowColor="@android:color/transparent"
-                android:text="Registration"
+                android:text="Register"
                 android:textColor="#fff"
                 android:textStyle="bold" />
 

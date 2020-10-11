@@ -121,7 +121,7 @@
                 android:background="@drawable/shapeemail"
                 android:digits="1234567890"
                 android:drawablePadding="10dp"
-                android:hint="PhoneNumber"
+                android:hint="Phone Number"
                 android:inputType="number"
                 android:maxLength="10"
                 android:textStyle="bold"

@@ -166,6 +166,7 @@ public class LoginActivity extends AppCompatActivity {
                         Toast.makeText(LoginActivity.this,response.body().getResponseMessage().toString(),Toast.LENGTH_LONG).show();
 
                         startActivity(new Intent(LoginActivity.this,DashboardActivity.class));
+                        pgsBar.setVisibility(GONE);
                             finish();
 
                     }else {

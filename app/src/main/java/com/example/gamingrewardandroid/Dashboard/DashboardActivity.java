@@ -36,6 +36,7 @@ import com.example.gamingrewardandroid.AuthenticationApi;
 
 import com.example.gamingrewardandroid.CommonFunctions;
 import com.example.gamingrewardandroid.FeatureContraoller;
+import com.example.gamingrewardandroid.GamerProfileActivity;
 import com.example.gamingrewardandroid.Model.Post;
 import com.example.gamingrewardandroid.Model.Posts1;
 import com.example.gamingrewardandroid.R;
@@ -186,6 +187,10 @@ public class DashboardActivity extends AppCompatActivity{
                         startActivity(new Intent(DashboardActivity.this,SuggestGame.class));
                         finish();
                         return false;
+                    //case R.id.menu_logout:
+                      // startActivity(new Intent(DashboardActivity.this, GamerProfileActivity.class));
+                       // finish();
+                        //return false;
 
                 }
                 return false;
