@@ -3,8 +3,11 @@ package com.example.gamingrewardandroid;
 
 import com.example.gamingrewardandroid.Dashboard.GameListInput;
 import com.example.gamingrewardandroid.Dashboard.GameListOutput;
+import com.example.gamingrewardandroid.GamerProfile.ProfileInPut;
+import com.example.gamingrewardandroid.GamerProfile.ProfileShowOutPut;
 import com.example.gamingrewardandroid.LoginStudent.LoginInput;
 import com.example.gamingrewardandroid.LoginStudent.LoginOutput;
+import com.example.gamingrewardandroid.PointsForm.AssignPointsInput;
 import com.example.gamingrewardandroid.PointsForm.ReawardParameterOutput;
 import com.example.gamingrewardandroid.PointsForm.RewardParameterInput;
 import com.example.gamingrewardandroid.Registration.StudentRegistraionOutput;
@@ -21,9 +24,10 @@ import retrofit2.http.POST;
 
 public interface AuthenticationApi {
 
-
-    @POST(WebserviceConstant.STUDENT_POINTS)
+    @POST ("core/webservice_game.php")
     Call<OutputPoints> getStudentPoints(@Body InputPoints d);
+    @POST ("core/webservice_game.php")
+    Call<ProfileShowOutPut> showprofile(@Body ProfileInPut d);
     @POST ("core/webservice_game.php")
     Call<LoginOutput> getlogin(@Body LoginInput i);
     @POST(WebserviceConstant.GAME_API)

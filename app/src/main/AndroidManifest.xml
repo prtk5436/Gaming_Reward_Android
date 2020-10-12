@@ -13,8 +13,8 @@
         android:roundIcon="@drawable/b"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".GamerProfileActivity"></activity>
         <activity android:name=".SplashScreen">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -23,6 +23,8 @@
         </activity>
         <activity android:name=".SuggestGame.SuggestGame" />
         <activity android:name=".PointsForm.PointsDataForm" />
+        <activity android:name=".GamerProfile.GamerProfileActivity" />
+
         <activity
             android:name=".Dashboard.DashboardActivity"
             android:screenOrientation="portrait"

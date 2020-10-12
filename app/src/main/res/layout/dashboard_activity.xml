@@ -61,6 +61,7 @@
 
 
         <ImageButton
+            android:visibility="gone"
 
             android:onClick="onOption"
             android:id="@+id/btn_option"

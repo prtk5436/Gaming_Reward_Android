@@ -1,6 +1,4 @@
-package com.example.gamingrewardandroid;
-
-import androidx.appcompat.app.AppCompatActivity;
+package com.example.gamingrewardandroid.GamerProfile;
 
 import android.os.Bundle;
 import android.view.View;
@@ -8,17 +6,67 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.gamingrewardandroid.AuthenticationApi;
+import com.example.gamingrewardandroid.FeatureContraoller;
+import com.example.gamingrewardandroid.R;
+import com.example.gamingrewardandroid.WebServiceClasses.ApiClient;
+
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 public class GamerProfileActivity extends AppCompatActivity {
 EditText edt_name,edt_phone,edt_email,edt_pass,edt_add,edt_city,edt_state,edt_country;
 Button btn_update;
 String str_name,str_phone,str_email,str_pass,str_add,str_city,str_state,str_country;
 ImageView btn_edt;
+List<UserProfile> profile=null;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gamer_profile);
         init();
+
         editoff();
+        profileshow();
+    }
+
+    private void profileshow() {
+
+        AuthenticationApi api= ApiClient.getClient().create(AuthenticationApi.class);
+        ProfileInPut i=new ProfileInPut();
+        String id= FeatureContraoller.getInstance().getUserid();
+        i.setOperation("gamer_profile_show");
+        i.setUserId(id);
+                Call<ProfileShowOutPut> call=api.showprofile(i);
+        call.enqueue(new Callback<ProfileShowOutPut>() {
+            @Override
+            public void onResponse(Call<ProfileShowOutPut> call, Response<ProfileShowOutPut> response) {
+                if (response.body()!=null){
+                    if (response.body().getResponseStatus()==200){
+                        profile=response.body().getUserProfile();
+                        edt_name.setText(profile.get(0).getName().toString());
+                        edt_phone.setText(profile.get(0).getMobileNumber());
+                        edt_email.setText(profile.get(0).getEmail());
+                        edt_pass.setText(profile.get(0).getPassWord());
+                        edt_add.setText(profile.get(0).getAddress());
+                        edt_city.setText(profile.get(0).getCity());
+                        edt_state .setText(profile.get(0).getState());
+                        edt_country.setText(profile.get(0).getCountry());
+
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ProfileShowOutPut> call, Throwable t) {
+
+            }
+        });
     }
 
     private void editoff() {
