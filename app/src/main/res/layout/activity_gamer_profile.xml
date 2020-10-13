@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -35,231 +35,357 @@
     <!--        android:layout_height="wrap_content">-->
     <!--    </LinearLayout>-->
     <LinearLayout
+        android:id="@+id/l1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
+        android:background="@drawable/game"
         android:backgroundTint="#FF6600"
-        android:background="@drawable/game">
+        android:orientation="vertical">
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Gamer Profile"
-            android:textSize="30dp"
             android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:text="Gamer Profile"
             android:textColor="@color/white"
+            android:textSize="30dp"
             android:textStyle="bold" />
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:layout_width="150dp"
             android:layout_height="150dp"
-            android:src="@drawable/b"
             android:layout_gravity="center"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="20dp"
-            />
+            android:src="@drawable/b" />
 
-        <ImageView
-            android:id="@+id/btn_edt"
-            android:layout_width="60dp"
-            android:layout_height="51dp"
-            android:layout_gravity="right"
-            android:layout_marginRight="20dp"
-            android:layout_marginBottom="10dp"
-            app:srcCompat="@android:drawable/ic_menu_edit"
-            android:onClick="btnEdit"/>
     </LinearLayout>
+
+    <ImageView
+        android:id="@+id/btn_edt"
+        android:layout_width="60dp"
+        android:layout_height="40dp"
+        android:layout_below="@+id/l1"
+        android:layout_alignParentRight="true"
+        android:layout_gravity="right"
+        android:layout_marginTop="-45dp"
+        android:layout_marginBottom="10dp"
+        android:onClick="btnEdit"
+        app:srcCompat="@android:drawable/ic_menu_edit" />
+
     <ScrollView
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/l1">
+
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginTop="20dp"
             android:layout_marginLeft="16dp"
+            android:layout_marginTop="20dp"
             android:layout_marginRight="16dp"
-            >
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Gamer Name"
-                android:fontFamily="casual"
-                android:textStyle="bold"
-                android:textColor="@color/black"
-                android:textSize="18dp"/>
-            <EditText
-                android:id="@+id/edt_gamername"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Aniket Varma"
-                android:textSize="18dp"
-                android:textStyle="bold"
-                android:textColor="@color/black"
-                />
-            <View
-                android:layout_width="wrap_content"
-                android:layout_height="1dp"
-                android:background="#E8E8E8"
-                />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Phone"
-                android:fontFamily="casual"
-                android:textSize="18dp"
-                android:layout_marginTop="4dp"
-                android:textStyle="bold"
-                android:textColor="@color/black"
-                />
-            <EditText
-                android:id="@+id/edt_gamerphone"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="8182838485"
-                android:textSize="18dp"
-                android:textStyle="bold"
-                android:textColor="@color/black"
-                />
-            <View
-                android:layout_width="wrap_content"
-                android:layout_height="1dp"
-                android:background="#E8E8E8"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Email"
-                android:fontFamily="casual"
-                android:textSize="18dp"
-                android:textStyle="bold"
-                android:textColor="@color/black"
-                android:layout_marginTop="4dp"/>
-            <EditText
-                android:id="@+id/edt_gameremail"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="xyz@gmail.com"
-                android:textStyle="bold"
-                android:textColor="@color/black"/>
-            <View
-                android:layout_width="wrap_content"
-                android:layout_height="1dp"
-                android:background="#E8E8E8"/>
+            android:layout_marginBottom="20dp"
+            android:orientation="vertical">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Password"
                 android:fontFamily="casual"
+                android:text="Gamer Name"
+                android:textColor="@color/black"
+                android:textSize="18dp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/edt_gamername"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="5dp"
+                android:text="Aniket Varma"
+                android:textColor="@color/black"
+                android:textSize="18dp"
+                android:textStyle="bold" />
+
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="1dp"
+                android:layout_marginBottom="5dp"
+                android:background="#E8E8E8" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:fontFamily="casual"
+                android:text="Phone"
+                android:textColor="@color/black"
+                android:textSize="18dp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/edt_gamerphone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="5dp"
+                android:inputType="number"
+                android:maxLength="10"
+                android:text="8182838485"
+                android:textColor="@color/black"
                 android:textSize="18dp"
                 android:textStyle="bold"
+                tools:ignore="TextFields" />
+
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="1dp"
+                android:layout_marginBottom="5dp"
+                android:background="#E8E8E8" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:fontFamily="casual"
+                android:text="Email"
                 android:textColor="@color/black"
-                android:layout_marginTop="4dp"/>
+                android:textSize="18dp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/edt_gameremail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="5dp"
+                android:inputType="textEmailAddress"
+                android:text="xyz@gmail.com"
+                android:textColor="@color/black"
+                android:textStyle="bold" />
+
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="1dp"
+                android:layout_marginBottom="5dp"
+                android:background="#E8E8E8" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:fontFamily="casual"
+                android:text="Password"
+                android:textColor="@color/black"
+                android:textSize="18dp"
+                android:textStyle="bold" />
+
             <EditText
                 android:id="@+id/edt_gamerpass"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textStyle="bold"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="5dp"
+                android:inputType="textPassword"
+                android:maxLength="30"
+                android:text=""
                 android:textColor="@color/black"
                 android:textSize="18dp"
-                android:text="123456"/>
+                android:textStyle="bold" />
+
             <View
                 android:layout_width="wrap_content"
                 android:layout_height="1dp"
-                android:background="#E8E8E8"/>
+                android:layout_marginBottom="5dp"
+                android:background="#E8E8E8" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Address"
+                android:layout_marginTop="4dp"
                 android:fontFamily="casual"
-                android:textSize="18dp"
-                android:textStyle="bold"
+                android:text="Confirm Password"
                 android:textColor="@color/black"
-                android:layout_marginTop="4dp"/>
+                android:textSize="18dp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/edt_gamerCpass"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="5dp"
+                android:inputType="textPassword"
+                android:maxLength="30"
+                android:text=""
+                android:textColor="@color/black"
+                android:textSize="18dp"
+                android:textStyle="bold" />
+
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="1dp"
+                android:layout_marginBottom="5dp"
+                android:background="#E8E8E8" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:fontFamily="casual"
+                android:text="Address"
+                android:textColor="@color/black"
+                android:textSize="18dp"
+                android:textStyle="bold" />
+
             <EditText
                 android:id="@+id/edt_gameradd"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textStyle="bold"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="5dp"
+                android:maxLength="80"
+                android:text="xyz"
                 android:textColor="@color/black"
                 android:textSize="18dp"
-                android:text="xyz"/>
+                android:textStyle="bold" />
+
             <View
                 android:layout_width="wrap_content"
                 android:layout_height="1dp"
-                android:background="#E8E8E8"/>
+                android:layout_marginBottom="5dp"
+                android:background="#E8E8E8" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="City"
+                android:layout_marginTop="4dp"
                 android:fontFamily="casual"
-                android:textStyle="bold"
+                android:text="City"
                 android:textColor="@color/black"
                 android:textSize="18dp"
-                android:layout_marginTop="4dp"/>
+                android:textStyle="bold" />
+
             <EditText
                 android:id="@+id/edt_gamercity"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textStyle="bold"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="5dp"
+                android:maxLength="30"
+                android:text="Dhule"
                 android:textColor="@color/black"
                 android:textSize="18dp"
-                android:text="Dhule"/>
+                android:textStyle="bold" />
+
             <View
                 android:layout_width="wrap_content"
                 android:layout_height="1dp"
-                android:background="#E8E8E8"/>
+                android:layout_marginBottom="5dp"
+                android:background="#E8E8E8" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="State"
+                android:layout_marginTop="4dp"
                 android:fontFamily="casual"
-                android:textSize="18dp"
-                android:textStyle="bold"
+                android:text="State"
                 android:textColor="@color/black"
-                android:layout_marginTop="4dp"/>
+                android:textSize="18dp"
+                android:textStyle="bold" />
+
             <EditText
                 android:id="@+id/edt_gamerstate"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textStyle="bold"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="5dp"
+                android:maxLength="30"
+                android:text="Maharashtra"
                 android:textColor="@color/black"
                 android:textSize="18dp"
-                android:text="Maharashtra"/>
+                android:textStyle="bold" />
+
             <View
                 android:layout_width="wrap_content"
                 android:layout_height="1dp"
-                android:background="#E8E8E8"/>
+                android:layout_marginBottom="5dp"
+                android:background="#E8E8E8" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Country"
+                android:layout_marginTop="4dp"
                 android:fontFamily="casual"
-                android:textSize="18dp"
-                android:textStyle="bold"
+                android:text="Zip Code"
                 android:textColor="@color/black"
-                android:layout_marginTop="4dp"/>
+                android:textSize="18dp"
+                android:textStyle="bold" />
+
             <EditText
-                android:id="@+id/edt_gamercountry"
+                android:id="@+id/edt_gamerZipcode"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="5dp"
+                android:inputType="number"
+                android:maxLength="10"
+                android:text="420255"
+                android:textColor="@color/black"
+                android:textSize="18dp"
+                android:textStyle="bold" />
+
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="1dp"
+                android:layout_marginBottom="5dp"
+                android:background="#E8E8E8" />
+
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textStyle="bold"
+                android:layout_marginTop="4dp"
+                android:fontFamily="casual"
+                android:text="Country"
                 android:textColor="@color/black"
                 android:textSize="18dp"
-                android:layout_marginBottom="30dp"
-                android:text="India"/>
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/edt_gamercountry"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="5dp"
+                android:maxLength="30"
+                android:text="India"
+                android:textColor="@color/black"
+                android:textSize="18dp"
+                android:textStyle="bold" />
 
             <Button
                 android:id="@+id/btn_update"
-                android:onClick="onUpdate"
-                android:layout_width="130dp"
+                android:layout_width="150dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="Update "
-                android:textSize="20dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="30dp"
                 android:layout_marginBottom="40dp"
+                android:background="@drawable/shapeprf"
+                android:onClick="onUpdate"
+                android:text="Update "
                 android:textColor="@color/white"
-                android:background="@drawable/shapeprf" />
+                android:textSize="20dp" />
         </LinearLayout>
     </ScrollView>
-</LinearLayout>
+</RelativeLayout>
