@@ -29,8 +29,10 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.request.RequestOptions;
 import com.example.gamingrewardandroid.AuthenticationApi;
+import com.example.gamingrewardandroid.FeatureContraoller;
 import com.example.gamingrewardandroid.R;
 import com.example.gamingrewardandroid.SuggestGame.SuggestGame;
+import com.example.gamingrewardandroid.SuggestGame.SuggestGameInput;
 import com.example.gamingrewardandroid.WebServiceClasses.ApiClient;
 
 import java.io.ByteArrayOutputStream;
@@ -83,7 +85,6 @@ public class PointsDataForm extends AppCompatActivity {
     }
 
     private void setdata() {
-
         param=new EditText[size];
         for (int i=0;i< size;i++){
             param[i]=new EditText(this);
@@ -128,7 +129,6 @@ public class PointsDataForm extends AppCompatActivity {
                     }
                 }
             }
-
             @Override
             public void onFailure(Call<ReawardParameterOutput> call, Throwable t) {
 
@@ -141,19 +141,13 @@ public class PointsDataForm extends AppCompatActivity {
 
     public void onimageupload(View view) {
         openOptoinDialog();
-
     }
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-
         if (resultCode == Activity.RESULT_OK) {
-
             if (requestCode==1)
                 onSelectFromGalleryResult(data,1);
-
-            //   else if (requestCode == 1)
-            //     onCaptureImageResult(data);
         }
     }
 
@@ -206,8 +200,6 @@ public class PointsDataForm extends AppCompatActivity {
         Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
         startActivityForResult(intent,1);
 
-
-
     }
 
     public boolean hasPermissionInManifest(Context context, String permissionName) {
@@ -237,15 +229,44 @@ public class PointsDataForm extends AppCompatActivity {
             public void onClick(DialogInterface dialog, int item) {
                 if (items[item].equals("Choose from Library")) {
                     userChoosenTask = "Choose from Library";
-
                     galleryIntent();
-
-
                 } else if (items[item].equals("Cancel")) {
                     dialog.dismiss();
                 }
             }
         });
         builder.show();
+    }
+
+    public void submitScore(View view) {
+        AuthenticationApi api=ApiClient.getClient().create(AuthenticationApi.class);
+        AssignPointsInput i=new AssignPointsInput();
+        i.setOperation("assign_rewards_use");
+        i.setSchoolId("");
+        i.setSCMemberID("");
+        i.setUserId(FeatureContraoller.getInstance().getUserid());
+        i.setMobileNo(FeatureContraoller.getInstance().getUserDetails().get(0).getMobileNumber());
+        String img=getBase64(bm);
+        i.setImg(img);
+            if (id.equals("1") || id.equals("2") || id.equals("3")){
+                i.setGameId(id);
+                i.setKills(param[0].getText().toString());
+                i.setRank(param[1].getText().toString());
+                i.setWINOrNot(param[2].getText().toString());
+            }
+
+        Call<AssignPointsOutput> call=api.getSelfReward(i);
+            call.enqueue(new Callback<AssignPointsOutput>() {
+                @Override
+                public void onResponse(Call<AssignPointsOutput> call, Response<AssignPointsOutput> response) {
+                    
+                }
+
+                @Override
+                public void onFailure(Call<AssignPointsOutput> call, Throwable t) {
+
+                }
+            });
+
     }
 }

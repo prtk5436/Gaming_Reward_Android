@@ -115,6 +115,7 @@
         android:shadowColor="@android:color/transparent"
         android:text="Submit Score"
         android:textColor="#fff"
+        android:onClick="submitScore"
         android:textStyle="bold"
         android:visibility="visible" />
 
