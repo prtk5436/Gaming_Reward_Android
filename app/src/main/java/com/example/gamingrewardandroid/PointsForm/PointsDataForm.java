@@ -22,6 +22,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -31,6 +32,7 @@ import com.bumptech.glide.request.RequestOptions;
 import com.example.gamingrewardandroid.AuthenticationApi;
 import com.example.gamingrewardandroid.FeatureContraoller;
 import com.example.gamingrewardandroid.R;
+import com.example.gamingrewardandroid.StudentsPoints.Points;
 import com.example.gamingrewardandroid.SuggestGame.SuggestGame;
 import com.example.gamingrewardandroid.SuggestGame.SuggestGameInput;
 import com.example.gamingrewardandroid.WebServiceClasses.ApiClient;
@@ -57,6 +59,7 @@ public class PointsDataForm extends AppCompatActivity {
     TextView gamenm;
     String base64String = "";
     private Bitmap bm;
+    ProgressBar progressBar;
     byte[] bb = null;
     private String userChoosenTask;
 
@@ -68,6 +71,8 @@ public class PointsDataForm extends AppCompatActivity {
         screensht=findViewById(R.id.screenShot);
         gameimg=findViewById(R.id.gameicon);
         gamenm=findViewById(R.id.txt_gamename);
+        progressBar=findViewById(R.id.progress);
+
         url=getIntent().getStringExtra("url");
         gamename=getIntent().getStringExtra("gamename");
         id=getIntent().getStringExtra("gameid");
@@ -113,6 +118,7 @@ public class PointsDataForm extends AppCompatActivity {
 
     private void getParametrs() {
         AuthenticationApi api= ApiClient.getClient().create(AuthenticationApi.class);
+        progressBar.setVisibility(View.VISIBLE);
         RewardParameterInput i=new RewardParameterInput();
         i.setOperation("List_Of_Game_Parameters");
         i.setGameId(id);
@@ -122,6 +128,7 @@ public class PointsDataForm extends AppCompatActivity {
             public void onResponse(Call<ReawardParameterOutput> call, Response<ReawardParameterOutput> response) {
                 if (response.body()!=null){
                     if (response.body().getResponseStatus()==200){
+                        progressBar.setVisibility(View.GONE);
                         paramlist= response.body().getGameParametersList().toArray();
                         size = paramlist.length;
                         //Toast.makeText(PointsDataForm.this,"woi",Toast.LENGTH_LONG).show();
@@ -239,6 +246,7 @@ public class PointsDataForm extends AppCompatActivity {
     }
 
     public void submitScore(View view) {
+        progressBar.setVisibility(View.VISIBLE);
         AuthenticationApi api=ApiClient.getClient().create(AuthenticationApi.class);
         AssignPointsInput i=new AssignPointsInput();
         i.setOperation("assign_rewards_use");
@@ -253,13 +261,62 @@ public class PointsDataForm extends AppCompatActivity {
                 i.setKills(param[0].getText().toString());
                 i.setRank(param[1].getText().toString());
                 i.setWINOrNot(param[2].getText().toString());
+            }else if (id.equals("6") || id.equals("7") ){
+                i.setGameId(id);
+                i.setDistance(param[0].getText().toString());
+                i.setCoinsEarned(param[1].getText().toString());
+            }else if (id.equals("4")){
+
+                i.setGameId(id);
+                i.setLevel(param[0].getText().toString());
+                i.setStars(param[1].getText().toString());
+                i.setTrophies(param[2].getText().toString());
+
+            }else if (id.equals("5")){
+
+                i.setGameId(id);
+                i.setTotalCoinsEarned(param[0].getText().toString());
+                i.setWinnerOn1stRank(param[1].getText().toString());
+            }
+            else if (id.equals("8")){
+
+                i.setGameId(id);
+                i.setLevel(param[0].getText().toString());
+                i.setMoves(param[1].getText().toString());
+
+
+            }else if (id.equals("9")){
+
+                i.setGameId(id);
+                i.setScore(param[0].getText().toString());
+                i.setStars(param[1].getText().toString());
+                i.setLevel(param[2].getText().toString());
+
+            }else if (id.equals("10")){
+
+
+                i.setGameId(id);
+                i.setMoneyWon(param[0].getText().toString());
+                i.setRankInCompetition(param[1].getText().toString());
             }
 
         Call<AssignPointsOutput> call=api.getSelfReward(i);
             call.enqueue(new Callback<AssignPointsOutput>() {
                 @Override
                 public void onResponse(Call<AssignPointsOutput> call, Response<AssignPointsOutput> response) {
-                    
+                    if(response.body()!=null){
+
+                        if (response.body().getResponseStatus()==200){
+
+                            Toast.makeText(PointsDataForm.this,response.body().getPointsEarned(),Toast.LENGTH_LONG).show();
+                            progressBar.setVisibility(View.GONE);
+
+                        }else {
+                            Toast.makeText(PointsDataForm.this,response.body().getResponseMessage(),Toast.LENGTH_LONG).show();
+                            progressBar.setVisibility(View.GONE);
+                        }
+                    }
+
                 }
 
                 @Override

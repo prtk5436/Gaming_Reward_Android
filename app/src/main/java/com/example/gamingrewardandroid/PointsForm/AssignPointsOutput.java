@@ -10,6 +10,9 @@ public class AssignPointsOutput {
     @SerializedName("responseMessage")
     @Expose
     private String responseMessage;
+    @SerializedName("Points_Earned")
+    @Expose
+    private Integer pointsEarned;
 
     public Integer getResponseStatus() {
         return responseStatus;
@@ -25,5 +28,13 @@ public class AssignPointsOutput {
 
     public void setResponseMessage(String responseMessage) {
         this.responseMessage = responseMessage;
+    }
+
+    public Integer getPointsEarned() {
+        return pointsEarned;
+    }
+
+    public void setPointsEarned(Integer pointsEarned) {
+        this.pointsEarned = pointsEarned;
     }
 }

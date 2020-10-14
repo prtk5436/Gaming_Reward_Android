@@ -178,9 +178,9 @@ public class DashboardActivity extends AppCompatActivity{
                 if (response.body()!=null){
                     if (response.body().getResponseStatus() == 200) {
                         String BrownPoints = response.body().getTotlePoints();
-                        Float pt=Float.parseFloat(BrownPoints);
 
-                        myPoints.setText("50");
+
+                        myPoints.setText(BrownPoints);
 
                     }
                 }

@@ -118,5 +118,11 @@
         android:onClick="submitScore"
         android:textStyle="bold"
         android:visibility="visible" />
+    <ProgressBar
+        android:id="@+id/progress"
+        android:layout_below="@id/btnsubmitscore"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:visibility="gone"/>
 
 </RelativeLayout>

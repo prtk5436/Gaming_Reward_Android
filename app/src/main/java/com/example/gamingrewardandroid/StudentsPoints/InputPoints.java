@@ -9,7 +9,7 @@ public class InputPoints {
     @SerializedName("operation")
     @Expose
     private String operation;
-    @SerializedName("id")
+    @SerializedName("user_id")
     @Expose
     private String id;
 
