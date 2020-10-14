@@ -30,6 +30,7 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.request.RequestOptions;
 import com.example.gamingrewardandroid.AuthenticationApi;
+import com.example.gamingrewardandroid.Dashboard.DashboardActivity;
 import com.example.gamingrewardandroid.FeatureContraoller;
 import com.example.gamingrewardandroid.R;
 import com.example.gamingrewardandroid.StudentsPoints.Points;
@@ -308,8 +309,15 @@ public class PointsDataForm extends AppCompatActivity {
 
                         if (response.body().getResponseStatus()==200){
 
-                            Toast.makeText(PointsDataForm.this,response.body().getPointsEarned(),Toast.LENGTH_LONG).show();
+                            Toast.makeText(PointsDataForm.this,response.body().getPointsEarned().toString(),Toast.LENGTH_LONG).show();
                             progressBar.setVisibility(View.GONE);
+                            String pts=response.body().getPointsEarned().toString();
+                            FeatureContraoller.getInstance().setPoint(pts);
+                            Intent intent=new Intent(PointsDataForm.this, PointsEarnedActivity.class);
+                            //intent.putExtra(pts,"points");
+                            startActivity(intent);
+
+                            //startActivity(new Intent(PointsDataForm.this, PointsEarnedActivity.class));
 
                         }else {
                             Toast.makeText(PointsDataForm.this,response.body().getResponseMessage(),Toast.LENGTH_LONG).show();

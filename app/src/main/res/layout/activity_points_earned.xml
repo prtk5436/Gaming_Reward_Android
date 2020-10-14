@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#FF6600"
+
+    tools:context=".PointsForm.PointsEarnedActivity">
+<de.hdodenhof.circleimageview.CircleImageView
+    android:layout_marginTop="10dp"
+    android:src="@drawable/b"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"/>
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_margin="70dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/white"
+        android:outlineAmbientShadowColor="@android:color/white"
+        >
+        <TextView
+            android:textColor="#FF6600"
+            android:text="Congratulations"
+            android:gravity="center_horizontal"
+            android:textStyle="bold"
+            android:textSize="18dp"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+        <TextView
+            android:id="@+id/usernm"
+            android:textColor="#FF6600"
+            android:text="Gamer"
+            android:gravity="center_horizontal"
+            android:textStyle="bold"
+            android:textSize="18dp"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+
+        <TextView
+
+            android:textColor="#FF6600"
+            android:text="You Won"
+
+            android:gravity="center_horizontal"
+            android:textStyle="bold"
+            android:textSize="18dp"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+        <TextView
+            android:id="@+id/pts"
+            android:textColor="#FF6600"
+            android:text="Points!"
+            android:gravity="center_horizontal"
+            android:textStyle="bold"
+            android:textSize="18dp"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+        <TextView
+
+            android:textColor="#FF6600"
+            android:text="Back to dashboard to play more and win more"
+
+            android:gravity="center_horizontal"
+            android:textStyle="bold"
+            android:textSize="18dp"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+        <ImageView
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/download"
+            android:layout_width="50dp"
+
+            android:layout_height="50dp"/>
+<Button
+    android:onClick="ondashboard"
+    android:text="Go to DashBoard"
+    android:layout_marginLeft="20dp"
+    android:layout_marginRight="20dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+
+</LinearLayout>

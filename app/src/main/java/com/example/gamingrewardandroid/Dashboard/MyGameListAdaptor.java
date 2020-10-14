@@ -53,6 +53,7 @@ public class MyGameListAdaptor extends RecyclerView.Adapter<MyGameListAdaptor.Vi
                 intent.putExtra("gameid",id[position]);
                 intent.putExtra("url",gameimg[position]);
                 view.getContext().startActivity(intent);
+
             }
         });
         Glide.with(context)
