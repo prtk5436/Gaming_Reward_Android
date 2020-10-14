@@ -7,21 +7,24 @@ public class AssignPointsInput {
     @SerializedName("operation")
     @Expose
     private String operation;
-    @SerializedName("Member_type")
+    @SerializedName("SC_Member_ID")
     @Expose
-    private String memberType;
+    private String sCMemberID;
     @SerializedName("School_id")
     @Expose
     private String schoolId;
     @SerializedName("mobile_no")
     @Expose
     private String mobileNo;
-    @SerializedName("user_name")
+    @SerializedName("user_id")
     @Expose
-    private String userName;
+    private String userId;
     @SerializedName("game_id")
     @Expose
     private String gameId;
+    @SerializedName("img")
+    @Expose
+    private String img;
     @SerializedName("Kills")
     @Expose
     private String kills;
@@ -36,28 +39,22 @@ public class AssignPointsInput {
     private String level;
     @SerializedName("Stars")
     @Expose
-    private String star;
+    private String stars;
     @SerializedName("Trophies")
     @Expose
     private String trophies;
     @SerializedName("Total_coins_earned")
     @Expose
-    private String coinsgain;
+    private String totalCoinsEarned;
     @SerializedName("Winner_on_1st_rank")
     @Expose
-    private String winner_on_1st;
+    private String winnerOn1stRank;
     @SerializedName("Distance")
     @Expose
     private String distance;
     @SerializedName("Coins_earned")
     @Expose
-    private String coins_earned;
-    @SerializedName("distance")
-    @Expose
-    private String Distance;
-    @SerializedName("Level")
-    @Expose
-    private String Level;
+    private String coinsEarned;
     @SerializedName("moves")
     @Expose
     private String moves;
@@ -66,125 +63,10 @@ public class AssignPointsInput {
     private String score;
     @SerializedName("Money_won")
     @Expose
-    private String money_won;
+    private String moneyWon;
     @SerializedName("Rank_in_competition")
     @Expose
-    private String competitionrank;
-
-    public String getCompetitionrank() {
-        return competitionrank;
-    }
-
-    public void setCompetitionrank(String competitionrank) {
-        this.competitionrank = competitionrank;
-    }
-
-    public String getwINOrNot() {
-        return wINOrNot;
-    }
-
-    public void setwINOrNot(String wINOrNot) {
-        this.wINOrNot = wINOrNot;
-    }
-
-    public String getLevel() {
-        return level;
-    }
-
-    public void setLevel(String level) {
-        this.level = level;
-    }
-
-    public String getMoves() {
-        return moves;
-    }
-
-    public void setMoves(String moves) {
-        this.moves = moves;
-    }
-
-    public String getScore() {
-        return score;
-    }
-
-    public void setScore(String score) {
-        this.score = score;
-    }
-
-    public String getMoney_won() {
-        return money_won;
-    }
-
-    public void setMoney_won(String money_won) {
-        this.money_won = money_won;
-    }
-
-    public String getRankincompetition() {
-        return Rankincompetition;
-    }
-
-    public void setRankincompetition(String rankincompetition) {
-        Rankincompetition = rankincompetition;
-    }
-
-    public String getStar() {
-        return star;
-    }
-
-    public void setStar(String star) {
-        this.star = star;
-    }
-
-    public String getTrophies() {
-        return trophies;
-    }
-
-    public void setTrophies(String trophies) {
-        this.trophies = trophies;
-    }
-
-    public String getCoinsgain() {
-        return coinsgain;
-    }
-
-    public void setCoinsgain(String coinsgain) {
-        this.coinsgain = coinsgain;
-    }
-
-    public String getWinner_on_1st() {
-        return winner_on_1st;
-    }
-
-    public void setWinner_on_1st(String winner_on_1st) {
-        this.winner_on_1st = winner_on_1st;
-    }
-
-    public String getDistance() {
-        return distance;
-    }
-
-    public void setDistance(String distance) {
-        this.distance = distance;
-    }
-
-    public String getCoins_earned() {
-        return coins_earned;
-    }
-
-    public void setCoins_earned(String coins_earned) {
-        this.coins_earned = coins_earned;
-    }
-
-    @SerializedName("Rank_in_competition")
-    @Expose
-    private String Rankincompetition;
-
-
-
-
-
-
-
+    private String rankInCompetition;
 
     public String getOperation() {
         return operation;
@@ -194,12 +76,12 @@ public class AssignPointsInput {
         this.operation = operation;
     }
 
-    public String getMemberType() {
-        return memberType;
+    public String getSCMemberID() {
+        return sCMemberID;
     }
 
-    public void setMemberType(String memberType) {
-        this.memberType = memberType;
+    public void setSCMemberID(String sCMemberID) {
+        this.sCMemberID = sCMemberID;
     }
 
     public String getSchoolId() {
@@ -218,12 +100,12 @@ public class AssignPointsInput {
         this.mobileNo = mobileNo;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getUserId() {
+        return userId;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
     public String getGameId() {
@@ -232,6 +114,14 @@ public class AssignPointsInput {
 
     public void setGameId(String gameId) {
         this.gameId = gameId;
+    }
+
+    public String getImg() {
+        return img;
+    }
+
+    public void setImg(String img) {
+        this.img = img;
     }
 
     public String getKills() {
@@ -256,6 +146,94 @@ public class AssignPointsInput {
 
     public void setWINOrNot(String wINOrNot) {
         this.wINOrNot = wINOrNot;
+    }
+
+    public String getLevel() {
+        return level;
+    }
+
+    public void setLevel(String level) {
+        this.level = level;
+    }
+
+    public String getStars() {
+        return stars;
+    }
+
+    public void setStars(String stars) {
+        this.stars = stars;
+    }
+
+    public String getTrophies() {
+        return trophies;
+    }
+
+    public void setTrophies(String trophies) {
+        this.trophies = trophies;
+    }
+
+    public String getTotalCoinsEarned() {
+        return totalCoinsEarned;
+    }
+
+    public void setTotalCoinsEarned(String totalCoinsEarned) {
+        this.totalCoinsEarned = totalCoinsEarned;
+    }
+
+    public String getWinnerOn1stRank() {
+        return winnerOn1stRank;
+    }
+
+    public void setWinnerOn1stRank(String winnerOn1stRank) {
+        this.winnerOn1stRank = winnerOn1stRank;
+    }
+
+    public String getDistance() {
+        return distance;
+    }
+
+    public void setDistance(String distance) {
+        this.distance = distance;
+    }
+
+    public String getCoinsEarned() {
+        return coinsEarned;
+    }
+
+    public void setCoinsEarned(String coinsEarned) {
+        this.coinsEarned = coinsEarned;
+    }
+
+    public String getMoves() {
+        return moves;
+    }
+
+    public void setMoves(String moves) {
+        this.moves = moves;
+    }
+
+    public String getScore() {
+        return score;
+    }
+
+    public void setScore(String score) {
+        this.score = score;
+    }
+
+    public String getMoneyWon() {
+        return moneyWon;
+    }
+
+    public void setMoneyWon(String moneyWon) {
+        this.moneyWon = moneyWon;
+    }
+
+    public String getRankInCompetition() {
+        return rankInCompetition;
+    }
+
+    public void setRankInCompetition(String rankInCompetition) {
+        this.rankInCompetition = rankInCompetition;
     }
 
 }

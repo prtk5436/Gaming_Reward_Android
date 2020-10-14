@@ -80,6 +80,7 @@
         android:textStyle="bold"
         android:layout_marginTop="30dp"
         android:layout_below="@id/layout_pubg"
+        android:onClick="onimageupload"
 
         android:textSize="20dp"
         android:textColor="@android:color/white"
@@ -97,8 +98,8 @@
         android:padding="5dp"
         android:layout_toRightOf="@id/scr"
         android:id="@+id/screenShot"
-        android:layout_width="40dp"
-        android:layout_height="40dp" />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
     <Button
         android:layout_margin="30dp"
         android:layout_below="@id/screenShot"
