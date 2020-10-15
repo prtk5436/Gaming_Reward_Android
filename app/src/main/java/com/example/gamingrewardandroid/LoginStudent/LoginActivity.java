@@ -45,11 +45,16 @@ public class LoginActivity extends AppCompatActivity {
     private Button btnlogin;
     private EditText Uname,password,schoolId;
     private ProgressBar pgsBar;
-    private SharedPreferences pref;
+    //private SharedPreferences pref;
+
+
+
+
+    
     private TextView tv1;
     String [] gamename;
     private RadioGroup rdg_app_type;
-    SharedPreferences.Editor editor;
+    //SharedPreferences.Editor editor;
     public  ArrayList<UserDetail> userDetails;
     private RadioButton rbtn_dev,rbtn_test,rbtn_production;
     ArrayList <GameList> gameLists=new ArrayList<>();
@@ -60,47 +65,8 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         init();
 
-        pref = getSharedPreferences("user_details",MODE_PRIVATE);
-        editor = pref.edit();
-        //Env start
-      /*  if(rdg_app_type.getVisibility() == View.VISIBLE) {
-            if (pref.getString("apptype", "").equals(WebserviceConstant.TEST)) {
-                rbtn_test.setChecked(true);
-                WebserviceConstant.setAppType(WebserviceConstant.TEST);
-            } else if (pref.getString("apptype", "").equals(WebserviceConstant.PRODUCTION)) {
-                rbtn_production.setChecked(true);
-                WebserviceConstant.setAppType(WebserviceConstant.PRODUCTION);
-            } else if (pref.getString("apptype", "").equals(WebserviceConstant.DEVELOPMENT)) {
-                rbtn_dev.setChecked(true);
-                WebserviceConstant.setAppType(WebserviceConstant.DEVELOPMENT);
-            }
-        }else{
-            WebserviceConstant.setAppType(WebserviceConstant.PRODUCTION);
-        }
-
-        rdg_app_type.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-
-            @Override
-            public void onCheckedChanged(RadioGroup group, int checkedId) {
-                // TODO Auto-generated method stub
-                switch (checkedId) {
-
-                    case R.id.rbtn_dev:
-                        //editor.putString("apptype" ,WebserviceConstant.DEVELOPMENT);
-                        WebserviceConstant.setAppType(WebserviceConstant.DEVELOPMENT);
-                        break;
-                    case R.id.rbtn_test:
-                        //editor.putString("apptype" ,WebserviceConstant.TEST);
-                        WebserviceConstant.setAppType(WebserviceConstant.TEST);
-                        break;
-                    case R.id.rbtn_production:
-                        //editor.putString("apptype" ,WebserviceConstant.PRODUCTION);
-                        WebserviceConstant.setAppType(WebserviceConstant.PRODUCTION);
-                        break;
-                }
-            }
-        });*/
-        //Env end
+        //pref = getSharedPreferences("user_details",MODE_PRIVATE);
+        //editor = pref.edit();
 
         tv1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -109,10 +75,6 @@ public class LoginActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
-        String name = pref.getString("username","");
-        //String school = pref.getString("schoolid","");
-        String pass = pref.getString("password","");
-        // final String category = pref.getString("category","");
 
 
         btnlogin.setOnClickListener(new View.OnClickListener() {
@@ -120,16 +82,11 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
                 getlistgames();
                 String name = Uname.getText().toString().trim();
-        //        String schoolid = schoolId.getText().toString().trim();
+
                 String pass = password.getText().toString().trim();
 
-                // String radiovalue = ((RadioButton) findViewById(radioGroup.getCheckedRadioButtonId())).getText().toString();
 
-                /*editor.putString("username", name);
-                editor.putString("schoolid", schoolid);
-                editor.putString("password", pass);
-                editor.commit();
-                 */
+
 
 
                 if (name.equals("")) {
