@@ -46,11 +46,6 @@ public class LoginActivity extends AppCompatActivity {
     private EditText Uname,password,schoolId;
     private ProgressBar pgsBar;
     //private SharedPreferences pref;
-
-
-
-
-    
     private TextView tv1;
     String [] gamename;
     private RadioGroup rdg_app_type;
