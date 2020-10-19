@@ -45,11 +45,12 @@ public class LoginActivity extends AppCompatActivity {
     private Button btnlogin;
     private EditText Uname,password,schoolId;
     private ProgressBar pgsBar;
-    //private SharedPreferences pref;
+    SharedPreferences pref;
+    SharedPreferences.Editor editor;
     private TextView tv1;
     String [] gamename;
     private RadioGroup rdg_app_type;
-    //SharedPreferences.Editor editor;
+    String uname,pass;
     public  ArrayList<UserDetail> userDetails;
     private RadioButton rbtn_dev,rbtn_test,rbtn_production;
     ArrayList <GameList> gameLists=new ArrayList<>();
@@ -59,6 +60,15 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         init();
+        pref=getApplicationContext().getSharedPreferences("credentials",MODE_PRIVATE);
+        editor=pref.edit();
+        uname= pref.getString("username","");
+        pass=pref.getString("password","");
+        if (!uname.isEmpty() && !pass.isEmpty()){
+            loginStudent(uname,pass);
+            getlistgames();
+        }
+
 
         //pref = getSharedPreferences("user_details",MODE_PRIVATE);
         //editor = pref.edit();
@@ -98,7 +108,7 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
-    private void loginStudent(String name, String pass) {
+    private void loginStudent(final String name, final String pass) {
         AuthenticationApi api=ApiClient.getClient().create(AuthenticationApi.class);
         LoginInput i=new LoginInput();
         i.setOperation("gamer_login");
@@ -111,8 +121,12 @@ public class LoginActivity extends AppCompatActivity {
             public void onResponse(Call<LoginOutput> call, Response<LoginOutput> response) {
                 if (response.body()!=null){
                     if (response.body().getResponseStatus()==200){
-                            userDetails= (ArrayList<UserDetail>) response.body().getUserDetails();
 
+
+                            userDetails= (ArrayList<UserDetail>) response.body().getUserDetails();
+                            editor.putString("username",name);
+                            editor.putString("password",pass);
+                            editor.commit();
                             FeatureContraoller.getInstance().setUserid(userDetails.get(0).getId());
                             FeatureContraoller.getInstance().setUserDetails((ArrayList<UserDetail>) response.body().getUserDetails());
                         Toast.makeText(LoginActivity.this,response.body().getResponseMessage().toString(),Toast.LENGTH_LONG).show();
@@ -123,6 +137,8 @@ public class LoginActivity extends AppCompatActivity {
 
                     }else {
                         Toast.makeText(LoginActivity.this,response.body().getResponseMessage().toString(),Toast.LENGTH_LONG).show();
+                        pgsBar.setVisibility(GONE);
+
                     }
                 }
             }
@@ -153,6 +169,7 @@ public class LoginActivity extends AppCompatActivity {
                         }
                         FeatureContraoller.getInstance().setGamename(gamename);
                         FeatureContraoller.getInstance().setGamelist((ArrayList<GameList>) response.body().getGameList());
+
                     }else {
                         Toast.makeText(getApplicationContext(),"game",Toast.LENGTH_LONG);
                     }
