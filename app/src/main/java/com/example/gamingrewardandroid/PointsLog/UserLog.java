@@ -4,6 +4,7 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 public class UserLog {
+
     @SerializedName("game_id")
     @Expose
     private String gameId;
@@ -22,6 +23,9 @@ public class UserLog {
     @SerializedName("gain_points")
     @Expose
     private String gainPoints;
+    @SerializedName("date")
+    @Expose
+    private String date;
 
     public String getGameId() {
         return gameId;
@@ -69,5 +73,13 @@ public class UserLog {
 
     public void setGainPoints(String gainPoints) {
         this.gainPoints = gainPoints;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
     }
 }

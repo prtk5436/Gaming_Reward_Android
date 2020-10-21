@@ -16,11 +16,13 @@ import com.example.gamingrewardandroid.R;
 public class LogAdapter extends RecyclerView.Adapter<LogAdapter.MyLog> {
     public String[]  gamename;
     public String[] points;
+    public String[] date;
     Context context;
-    LogAdapter(String[] gamename, String[] points, Context context){
+    LogAdapter(String[] gamename, String[] points, Context context,String[] date){
         this.gamename=gamename;
         this.points=points;
         this.context=context;
+        this.date=date;
     }
     @NonNull
     @Override
@@ -36,6 +38,7 @@ public class LogAdapter extends RecyclerView.Adapter<LogAdapter.MyLog> {
     public void onBindViewHolder(@NonNull MyLog holder, int position)
     {
         holder.gamename.setText(gamename[position]);
+        holder.dates.setText(""+date[position]);
         holder.points.setText("Points Earned:" +points[position]);
 
     }
@@ -48,11 +51,12 @@ public class LogAdapter extends RecyclerView.Adapter<LogAdapter.MyLog> {
     }
 
     public class MyLog extends RecyclerView.ViewHolder {
-        TextView gamename,points;
+        TextView gamename,points,dates;
         public MyLog(@NonNull View itemView) {
             super(itemView);
             gamename=itemView.findViewById(R.id.txt_gamename);
             points=itemView.findViewById(R.id.txt_points_earned);
+            dates=itemView.findViewById(R.id.txt_dt);
         }
     }
 }

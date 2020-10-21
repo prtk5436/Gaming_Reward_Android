@@ -71,6 +71,7 @@ public class DashboardActivity extends AppCompatActivity{
     private String points = "0";
     public String[] gamenm;
     public String[] point;
+    public  String [] dt;
     List<UserLog> log;
 
     private Toolbar toolbar;
@@ -163,6 +164,7 @@ public class DashboardActivity extends AppCompatActivity{
                 Intent intent=new Intent(DashboardActivity.this,PointsLogActivity.class);
                 intent.putExtra("gamee",gamenm);
                 intent.putExtra("pts",point);
+                intent.putExtra("dt",dt);
                 startActivity(intent);
 
                 return true;
@@ -202,9 +204,15 @@ public class DashboardActivity extends AppCompatActivity{
                     int size=log.size();
                     gamenm=new String[size];
                     point=new String[size];
-                    for (int i=0;i<size;i++){
-                        gamenm[i]=log.get(i).getGameName().toString();
-                        point[i]=log.get(i).getGainPoints().toString();
+                    dt=new String[size];
+                    int j=0;
+                    for (int i=size-1;i>=0;i--){
+
+                        gamenm[j]=log.get(i).getGameName().toString();
+                        point[j]=log.get(i).getGainPoints().toString();
+                        dt[j]=log.get(i).getDate().toString();
+                        j++;
+
 
                     }
 
@@ -239,9 +247,9 @@ public class DashboardActivity extends AppCompatActivity{
                 if (response.body()!=null){
                     if (response.body().getResponseStatus() == 200) {
                         String BrownPoints = response.body().getTotlePoints();
-
-
-                        myPoints.setText(BrownPoints);
+                        float pts=Float.parseFloat(BrownPoints);
+                        int point=Math.round(pts);
+                        myPoints.setText(""+point);
                         getlog();
 
                     }
