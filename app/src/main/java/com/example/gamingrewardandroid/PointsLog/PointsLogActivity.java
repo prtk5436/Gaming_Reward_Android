@@ -28,6 +28,8 @@ public class PointsLogActivity extends AppCompatActivity {
     public String[] point;
     List<UserLog> log;
     RecyclerView recyclerView;
+    String [] date;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +40,7 @@ public class PointsLogActivity extends AppCompatActivity {
         textView.setText(FeatureContraoller.getInstance().getFullName());
        getLog();
 
-        LogAdapter adapter=new LogAdapter(gamenm,point,PointsLogActivity.this);
+        LogAdapter adapter=new LogAdapter(gamenm,point,PointsLogActivity.this,date);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setHasFixedSize(true);
         recyclerView.setAdapter(adapter);
@@ -46,7 +48,7 @@ public class PointsLogActivity extends AppCompatActivity {
     }
 
     private void getLog() {
-
+        date=getIntent().getStringArrayExtra("dt");
         gamenm=getIntent().getStringArrayExtra("gamee");
         point=getIntent().getStringArrayExtra("pts");
     }
