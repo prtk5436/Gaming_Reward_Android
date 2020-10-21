@@ -13,6 +13,8 @@ import com.example.gamingrewardandroid.PointsForm.AssignPointsInput;
 import com.example.gamingrewardandroid.PointsForm.AssignPointsOutput;
 import com.example.gamingrewardandroid.PointsForm.ReawardParameterOutput;
 import com.example.gamingrewardandroid.PointsForm.RewardParameterInput;
+import com.example.gamingrewardandroid.PointsLog.PointLogInput;
+import com.example.gamingrewardandroid.PointsLog.PointLogOuput;
 import com.example.gamingrewardandroid.Registration.StudentRegistraionOutput;
 import com.example.gamingrewardandroid.Registration.StudentRegistrationInput;
 import com.example.gamingrewardandroid.StudentsPoints.InputPoints;
@@ -42,6 +44,8 @@ public interface AuthenticationApi {
 
     @POST("core/webservice_game.php")
     Call<StudentRegistraionOutput> getRegisterResponse(@Body StudentRegistrationInput r);
+    @POST("core/webservice_game.php")
+    Call<PointLogOuput> getUserLog(@Body PointLogInput r);
     @POST("core/webservice_game.php")
     Call<AssignPointsOutput> getSelfReward(@Body AssignPointsInput r);
 

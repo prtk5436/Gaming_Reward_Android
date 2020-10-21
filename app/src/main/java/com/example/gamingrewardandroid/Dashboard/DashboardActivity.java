@@ -18,6 +18,7 @@ import android.widget.PopupMenu;
 import android.widget.ProgressBar;
 import android.widget.RatingBar;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.Toolbar;
 
 import androidx.annotation.NonNull;
@@ -29,8 +30,13 @@ import com.example.gamingrewardandroid.AuthenticationApi;
 
 import com.example.gamingrewardandroid.FeatureContraoller;
 import com.example.gamingrewardandroid.GamerProfile.GamerProfileActivity;
+import com.example.gamingrewardandroid.LoginStudent.LoginActivity;
 import com.example.gamingrewardandroid.Model.Post;
 import com.example.gamingrewardandroid.Model.Posts1;
+import com.example.gamingrewardandroid.PointsLog.PointLogInput;
+import com.example.gamingrewardandroid.PointsLog.PointLogOuput;
+import com.example.gamingrewardandroid.PointsLog.PointsLogActivity;
+import com.example.gamingrewardandroid.PointsLog.UserLog;
 import com.example.gamingrewardandroid.R;
 import com.example.gamingrewardandroid.StudentsPoints.InputPoints;
 import com.example.gamingrewardandroid.StudentsPoints.OutputPoints;
@@ -48,6 +54,7 @@ import retrofit2.Response;
 //pramod khandare10-01-2019
 public class DashboardActivity extends AppCompatActivity{
     ImageButton btnoption;
+
     RecyclerView recyclerView;
     private ListView playerslist;
     private Button btnassign;
@@ -62,6 +69,10 @@ public class DashboardActivity extends AppCompatActivity{
     private List<String> playerName = new ArrayList<String>();
     private SharedPreferences prf;
     private String points = "0";
+    public String[] gamenm;
+    public String[] point;
+    List<UserLog> log;
+
     private Toolbar toolbar;
     private ArrayAdapter playerlistAdapter;
     FeatureContraoller featureContraoller;
@@ -145,20 +156,70 @@ public class DashboardActivity extends AppCompatActivity{
         switch (item.getItemId()){
             case R.id.menu_new_game:
                 startActivity(new Intent(DashboardActivity.this,SuggestGame.class));
-                finish();
+
                 return true;
+            case R.id.menu_log:
+
+                Intent intent=new Intent(DashboardActivity.this,PointsLogActivity.class);
+                intent.putExtra("gamee",gamenm);
+                intent.putExtra("pts",point);
+                startActivity(intent);
+
+                return true;
+
             case R.id.menu_logout:
-                // startActivity(new Intent(DashboardActivity.this, GamerProfileActivity.class));
-                // finish();
-                //return false;
+                SharedPreferences pref=getApplicationContext().getSharedPreferences("credentials",MODE_PRIVATE);
+                SharedPreferences.Editor editor=pref.edit();
+                editor.remove("username");
+                editor.remove("password");
+                editor.commit();
+
+                startActivity(new Intent(DashboardActivity.this, LoginActivity.class));
+                finish();
+                return false;
             case R.id.menu_profile:
                 startActivity(new Intent(DashboardActivity.this, GamerProfileActivity.class));
-                finish();
+
                 return  true;
             default:   return super.onOptionsItemSelected(item);
         }
 
         //}
+    }
+
+    private void getlog() {
+        AuthenticationApi api=ApiClient.getClient().create(AuthenticationApi.class);
+
+        PointLogInput i=new PointLogInput();
+        i.setUserId(FeatureContraoller.getInstance().getUserid());
+        i.setOperation("game_logs_show");
+        Call<PointLogOuput> call=api.getUserLog(i);
+        call.enqueue(new Callback<PointLogOuput>() {
+            @Override
+            public void onResponse(Call<PointLogOuput> call, Response<PointLogOuput> response) {
+                if (response.body().getResponseStatus()==200){
+                    log=response.body().getUserProfile();
+                    int size=log.size();
+                    gamenm=new String[size];
+                    point=new String[size];
+                    for (int i=0;i<size;i++){
+                        gamenm[i]=log.get(i).getGameName().toString();
+                        point[i]=log.get(i).getGainPoints().toString();
+
+                    }
+
+
+                }
+                else {
+                    Toast.makeText(DashboardActivity.this,response.body().getResponseMessage().toString(),Toast.LENGTH_LONG).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<PointLogOuput> call, Throwable t) {
+
+            }
+        });
     }
 
 //        return super.onOptionsItemSelected(item);
@@ -181,6 +242,7 @@ public class DashboardActivity extends AppCompatActivity{
 
 
                         myPoints.setText(BrownPoints);
+                        getlog();
 
                     }
                 }
@@ -195,27 +257,6 @@ public class DashboardActivity extends AppCompatActivity{
 
     }
 
-    public void onOption(View view) {
-        PopupMenu popupMenu=new PopupMenu(DashboardActivity.this,view);
-        //popupMenu.getMenuInflater().inflate(R.menu.a,popupMenu.getMenu());
-        popupMenu.show();
-        popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
-            @Override
-            public boolean onMenuItemClick(MenuItem menuItem) {
-                switch (menuItem.getItemId()){
-                    case R.id.menu_new_game:
-                        startActivity(new Intent(DashboardActivity.this,SuggestGame.class));
-                        finish();
-                        return false;
-                    //case R.id.menu_logout:
-                    // startActivity(new Intent(DashboardActivity.this, GamerProfileActivity.class));
-                    // finish();
-                    //return false;
-
-                }
-                return false;
-            }
-        });
         //startActivity(new Intent(DashboardActivity.this,SuggestGame.class));
     }
-}
+
