@@ -28,6 +28,15 @@
         android:textColor="#FB8C00"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
+    <ScrollView
+        android:layout_below="@id/txt_gamename"
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
     <LinearLayout
         android:id="@+id/layout"
         android:visibility="visible"
@@ -144,5 +153,6 @@
         android:textColor="#fff"
         android:textStyle="bold"
         android:visibility="visible" />
-
+        </LinearLayout>
+    </ScrollView>
 </RelativeLayout>
