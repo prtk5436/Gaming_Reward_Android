@@ -12,7 +12,7 @@
         android:layout_marginLeft="20dp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="30dp"
-        android:src="@drawable/images"
+        android:src="@drawable/b"
         android:layout_height="98dp"/>
 
     <TextView
@@ -27,14 +27,21 @@
         android:textColor="#FB8C00"
         android:textSize="20dp"
         android:textStyle="bold" />
-
+<ScrollView
+    android:layout_below="@id/txt_gamename"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
     <LinearLayout
         android:id="@+id/layout_pubg"
         android:visibility="visible"
         android:layout_marginTop="20dp"
         android:orientation="vertical"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
+        android:layout_marginLeft="3dp"
+        android:layout_marginRight="3dp"
         android:layout_below="@id/txt_gamename"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -118,11 +125,14 @@
         android:onClick="submitScore"
         android:textStyle="bold"
         android:visibility="visible" />
+
     <ProgressBar
         android:id="@+id/progress"
         android:layout_below="@id/btnsubmitscore"
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:visibility="gone"/>
+    </LinearLayout>
+</ScrollView>
 
 </RelativeLayout>
