@@ -53,6 +53,8 @@ public class PointsDataForm extends AppCompatActivity {
     LinearLayout gamelayout;
     int size;
     EditText[] param;
+    TextView[] txt;
+    LinearLayout[] linear;
     ImageView gameimg,screensht;
     String url;
     String gamename;
@@ -91,8 +93,52 @@ public class PointsDataForm extends AppCompatActivity {
     }
 
     private void setdata() {
-        param=new EditText[size];
-        for (int i=0;i< size;i++){
+       linear=new LinearLayout[size];
+       txt=new TextView[size];
+       param=new EditText[size];
+       for (int i=0;i<size;i++){
+           linear[i]=new LinearLayout(this);
+           LinearLayout.LayoutParams params=new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,LinearLayout.LayoutParams.WRAP_CONTENT);
+           params.setMargins(5,15,5,15);
+           linear[i].setLayoutParams(params);
+           linear[i].setOrientation(LinearLayout.HORIZONTAL);
+
+
+           txt[i]= new TextView(this);
+           LinearLayout.LayoutParams param2=new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT,LinearLayout.LayoutParams.WRAP_CONTENT);
+           param2.setMargins(0,0,10,0);
+           txt[i].setLayoutParams(param2);
+           txt[i].setText(paramlist[i].toString());
+           txt[i].setTextColor(Color.WHITE);
+           txt[i].setTextSize(18);
+
+           txt[i].setPadding(30,15,15,15);
+           linear[i].addView(txt[i]);
+
+
+
+           param[i]=new EditText(this);
+           LinearLayout.LayoutParams param1=new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,LinearLayout.LayoutParams.MATCH_PARENT);
+
+           param[i].setLayoutParams(param1);
+
+           param[i].setBackgroundResource(shapeemail);
+           param[i].setTextColor(Color.WHITE);
+           param[i].setHintTextColor(Color.WHITE);
+           param[i].setHint(paramlist[i].toString());
+           param[i].setTextSize(20);
+
+           param[i].setPadding(30,15,15,15);
+           linear[i].addView(param[i]);
+
+            gamelayout.addView(linear[i]);
+
+
+
+
+       }
+/*        for (int i=0;i< size;i++){
+
             param[i]=new EditText(this);
             LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
                     LinearLayout.LayoutParams.MATCH_PARENT,
@@ -102,10 +148,11 @@ public class PointsDataForm extends AppCompatActivity {
 
             param[i].setLayoutParams(params);
 
-            param[i].setHint(paramlist[i].toString());
+            param[i].setText(paramlist[i].toString());
             param[i].setBackgroundResource(shapeemail);
             param[i].setTextColor(Color.WHITE);
             param[i].setHintTextColor(Color.WHITE);
+            param[i].setHint(paramlist[i].toString());
             param[i].setTextSize(25);
 
             param[i].setPadding(30,15,15,15);
@@ -113,8 +160,7 @@ public class PointsDataForm extends AppCompatActivity {
             gamelayout.addView(param[i]);
         }
 
-
-
+*/
     }
 
     private void getParametrs() {
@@ -147,8 +193,7 @@ public class PointsDataForm extends AppCompatActivity {
 
     }
 
-    public void onimageupload(View view) {
-        openOptoinDialog();
+    public void onimageupload(View view) { openOptoinDialog();
     }
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
@@ -247,6 +292,7 @@ public class PointsDataForm extends AppCompatActivity {
     }
 
     public void submitScore(View view) {
+
         progressBar.setVisibility(View.VISIBLE);
         AuthenticationApi api=ApiClient.getClient().create(AuthenticationApi.class);
         AssignPointsInput i=new AssignPointsInput();

@@ -76,15 +76,14 @@
         android:layout_alignBaseline="@id/screenShot"
         android:id="@+id/scr"
         android:layout_marginLeft="20dp"
-        android:text="Screenshot of game:"
+        android:text=" Upload Screenshot of game:"
         android:textStyle="bold"
         android:layout_marginTop="30dp"
         android:layout_below="@id/layout_pubg"
-        android:onClick="onimageupload"
 
         android:textSize="20dp"
         android:textColor="@android:color/white"
-        android:fontFamily="casual"
+
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
 
@@ -97,6 +96,8 @@
         android:src="@drawable/camera"
         android:padding="5dp"
         android:layout_toRightOf="@id/scr"
+        android:onClick="onimageupload"
+
         android:id="@+id/screenShot"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
