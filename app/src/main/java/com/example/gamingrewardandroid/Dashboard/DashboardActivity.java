@@ -207,13 +207,10 @@ public class DashboardActivity extends AppCompatActivity{
                     dt=new String[size];
                     int j=0;
                     for (int i=size-1;i>=0;i--){
-
                         gamenm[j]=log.get(i).getGameName().toString();
                         point[j]=log.get(i).getGainPoints().toString();
                         dt[j]=log.get(i).getDate().toString();
                         j++;
-
-
                     }
 
 
