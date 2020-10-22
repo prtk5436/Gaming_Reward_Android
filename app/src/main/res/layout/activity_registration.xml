@@ -7,28 +7,30 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/game"
+
     android:gravity="center"
     android:orientation="vertical"
     android:padding="10dp">
+
     <ImageView
-        android:layout_width="110dp"
-        android:src="@drawable/b"
+        android:layout_width="176dp"
+        android:layout_height="168dp"
 
-        android:layout_marginTop="-20dp"
-        android:layout_height="110dp"/>
+        android:layout_marginTop="-10dp"
+        android:src="@drawable/b" />
 
-    <TextView
-        android:text="Registration"
-        android:textStyle="bold"
-        android:gravity="center"
-        android:textSize="20dp"
-        android:fontFamily="casual"
+    <!--<TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="30dp"
-        android:textColor="@android:color/white"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:fontFamily="casual"
+        android:gravity="center"
+        android:text="Registration"
+        android:textColor="@android:color/black"
+        android:textSize="20dp"
+        android:textStyle="bold" />
+        -->
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -37,7 +39,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp">
 
             <ImageView
                 android:layout_width="100dp"
@@ -121,12 +125,13 @@
                 android:background="@drawable/shapeemail"
                 android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ' ."
                 android:drawablePadding="10dp"
+                android:gravity="center"
                 android:hint="Enter Name"
                 android:padding="15dp"
-                android:textColor="@color/white"
+                android:textColor="@color/black"
                 android:textColorHighlight="@color/white"
-                android:textColorHint="@color/white"
-                android:textStyle="bold" />
+                android:textColorHint="@color/black"
+                />
 
             <EditText
                 android:id="@+id/et_mobile"
@@ -135,14 +140,15 @@
                 android:layout_margin="10dp"
                 android:background="@drawable/shapeemail"
                 android:drawablePadding="10dp"
+                android:gravity="center"
                 android:hint="Enter Mobile Number"
                 android:inputType="number"
                 android:maxLength="10"
                 android:padding="15dp"
-                android:textColor="@color/white"
-                android:textColorHighlight="@color/white"
-                android:textColorHint="@color/white"
-                android:textStyle="bold" />
+                android:textColor="@color/black"
+                android:textColorHighlight="@color/black"
+                android:textColorHint="@color/black"
+                />
 
             <EditText
                 android:id="@+id/etemail"
@@ -152,13 +158,14 @@
                 android:background="@drawable/shapeemail"
                 android:drawablePadding="10dp"
                 android:hint="Enter Email ID"
+                android:gravity="center"
                 android:padding="15dp"
 
-                android:textColor="@color/white"
+                android:textColor="@color/black"
 
-                android:textColorHighlight="@color/white"
-                android:textColorHint="@color/white"
-                android:textStyle="bold" />
+                android:textColorHighlight="@color/black"
+                android:textColorHint="@color/black"
+                />
 
             <EditText
                 android:id="@+id/et_pass"
@@ -170,10 +177,11 @@
                 android:hint="Set Password"
                 android:inputType="textPassword"
                 android:padding="15dp"
-                android:textColor="@color/white"
-                android:textColorHighlight="@color/white"
-                android:textColorHint="@color/white"
-                android:textStyle="bold" />
+                android:textColor="@color/black"
+                android:gravity="center"
+                android:textColorHighlight="@color/black"
+                android:textColorHint="@color/black"
+                />
             <EditText
                 android:id="@+id/et_cnfpass"
                 android:layout_width="match_parent"
@@ -184,10 +192,11 @@
                 android:hint="Confirm password"
                 android:inputType="textPassword"
                 android:padding="15dp"
-                android:textColor="@color/white"
-                android:textColorHighlight="@color/white"
-                android:textColorHint="@color/white"
-                android:textStyle="bold" />
+                android:textColor="@color/black"
+                android:gravity="center"
+                android:textColorHighlight="@color/black"
+                android:textColorHint="@color/black"
+                />
 
 
             <Button
@@ -202,8 +211,9 @@
                 android:padding="15dp"
                 android:shadowColor="@android:color/transparent"
                 android:text="Register"
-                android:textColor="#fff"
-                android:textStyle="bold" />
+                android:textColor="@color/black"
+                android:textStyle=""
+                android:textSize="18dp"/>
 
             <TextView
                 android:id="@+id/tvlogin"

@@ -109,7 +109,7 @@ public class PointsDataForm extends AppCompatActivity {
            param2.setMargins(0,0,10,0);
            txt[i].setLayoutParams(param2);
            txt[i].setText(paramlist[i].toString());
-           txt[i].setTextColor(Color.WHITE);
+           txt[i].setTextColor(Color.BLACK);
            txt[i].setTextSize(18);
 
            txt[i].setPadding(30,15,15,15);

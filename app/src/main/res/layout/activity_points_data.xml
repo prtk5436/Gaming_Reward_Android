@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/game"
+
     tools:context=".PointsForm.PointsDataForm">
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/gameicon"
@@ -17,16 +17,17 @@
 
     <TextView
         android:id="@+id/txt_gamename"
-        android:text="Game name"
-        android:textStyle="bold"
-        android:layout_marginTop="20dp"
-        android:layout_below="@id/gameicon"
-        android:gravity="center_horizontal"
-        android:textSize="20dp"
-        android:textColor="@android:color/white"
-        android:fontFamily="casual"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:layout_below="@id/gameicon"
+        android:layout_marginTop="17dp"
+        android:fontFamily="casual"
+        android:gravity="center_horizontal"
+        android:text="Game name"
+        android:textColor="#FB8C00"
+        android:textSize="20dp"
+        android:textStyle="bold" />
+
     <LinearLayout
         android:id="@+id/layout_pubg"
         android:visibility="visible"
@@ -37,24 +38,24 @@
         android:layout_below="@id/txt_gamename"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-    <EditText
+        <EditText
 
 
-        android:id="@+id/edt_pubg_kills"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:background="@drawable/shapeemail"
-        android:hint="Kills"
-        android:inputType="number"
-        android:maxLength="2"
-        android:textStyle="bold"
-        android:padding="15dp"
-        android:textColor="@color/white"
-        android:textColorHighlight="@color/white"
-        android:textColorHint="@color/white"
-        android:visibility="gone"
-        />
+            android:id="@+id/edt_pubg_kills"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/shapeemail"
+            android:hint="Kills"
+            android:inputType="number"
+            android:maxLength="2"
+            android:textStyle="bold"
+            android:padding="15dp"
+            android:textColor="@color/white"
+            android:textColorHighlight="@color/white"
+            android:textColorHint="@color/white"
+            android:visibility="gone"
+            />
         <EditText
             android:id="@+id/edt_pubg_rank"
             android:layout_width="match_parent"
@@ -72,23 +73,23 @@
             android:visibility="gone"
             />
     </LinearLayout>
+
     <TextView
-        android:layout_alignBaseline="@id/screenShot"
         android:id="@+id/scr"
-        android:layout_marginLeft="20dp"
-        android:text=" Upload Screenshot of game:"
-        android:textStyle="bold"
-        android:layout_marginTop="30dp"
-        android:layout_below="@id/layout_pubg"
-
-        android:textSize="20dp"
-        android:textColor="@android:color/white"
-
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:layout_below="@id/layout_pubg"
+        android:layout_alignBaseline="@id/screenShot"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="30dp"
+
+        android:text="Upload Screenshot of game:"
+        android:textColor="#FB8C00"
+        android:textSize="20dp"
+        android:textStyle="bold" />
 
     <ImageView
-
+        android:onClick="onimageupload"
         android:layout_marginTop="30dp"
         android:layout_centerHorizontal="true"
         android:layout_below="@id/layout_pubg"
@@ -96,8 +97,6 @@
         android:src="@drawable/camera"
         android:padding="5dp"
         android:layout_toRightOf="@id/scr"
-        android:onClick="onimageupload"
-
         android:id="@+id/screenShot"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
@@ -114,7 +113,7 @@
         android:background="@drawable/shapelogin"
         android:padding="15dp"
         android:shadowColor="@android:color/transparent"
-        android:text="Submit Score"
+        android:text="Score"
         android:textColor="#fff"
         android:onClick="submitScore"
         android:textStyle="bold"
