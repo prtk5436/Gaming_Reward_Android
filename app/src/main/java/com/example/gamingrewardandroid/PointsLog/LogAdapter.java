@@ -37,9 +37,12 @@ public class LogAdapter extends RecyclerView.Adapter<LogAdapter.MyLog> {
     @Override
     public void onBindViewHolder(@NonNull MyLog holder, int position)
     {
+        float pts=Float.parseFloat(points[position]);
+        int point=Math.round(pts);
+
         holder.gamename.setText(gamename[position]);
         holder.dates.setText(""+date[position]);
-        holder.points.setText("Points Earned:" +points[position]);
+        holder.points.setText(point+"\nPoints");
 
     }
 

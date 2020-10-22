@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/game"
     android:gravity="center"
     android:padding="20dp">
 
@@ -121,14 +120,14 @@
                 android:background="@drawable/shapeemail"
                 android:digits="1234567890"
                 android:drawablePadding="10dp"
+                android:gravity="center"
                 android:hint="Phone Number"
                 android:inputType="number"
                 android:maxLength="10"
-                android:textStyle="bold"
                 android:padding="15dp"
-                android:textColor="@color/white"
-                android:textColorHighlight="@color/white"
-                android:textColorHint="@color/white"
+                android:textColor="@color/black"
+                android:textColorHighlight="@color/black"
+                android:textColorHint="@color/black"
                 android:visibility="visible" />
 
             <EditText
@@ -155,13 +154,13 @@
                 android:layout_margin="10dp"
                 android:background="@drawable/shapeemail"
                 android:drawablePadding="10dp"
+                android:gravity="center"
                 android:hint="Password"
                 android:inputType="textPassword"
                 android:padding="15dp"
-                android:textStyle="bold"
-                android:textColor="@color/white"
-                android:textColorHighlight="@color/white"
-                android:textColorHint="@color/white"
+                android:textColor="@color/black"
+                android:textColorHighlight="@color/black"
+                android:textColorHint="@color/black"
                 android:visibility="visible" />
 
             <Button
@@ -176,8 +175,8 @@
                 android:padding="15dp"
                 android:shadowColor="@android:color/transparent"
                 android:text="LogIn"
-                android:textColor="#fff"
-                android:textStyle="bold"
+                android:textColor="@color/black"
+
                 android:visibility="visible" />
 
             <TextView
@@ -191,9 +190,9 @@
                 android:baselineAligned="false"
                 android:gravity="center"
                 android:padding="2dp"
-                android:textStyle="bold"
                 android:text="Click Here To Register"
-                android:textColor="#fff"
+                android:textColor="#FB8C00"
+                android:textStyle="bold"
                 android:visibility="visible" />
         </LinearLayout>
     </ScrollView>

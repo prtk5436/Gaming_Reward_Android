@@ -37,7 +37,7 @@ public class PointsLogActivity extends AppCompatActivity {
         setContentView(R.layout.activity_points_log);
         recyclerView=findViewById(R.id.recycler_loglist);
         textView=findViewById(R.id.myName);
-        textView.setText(FeatureContraoller.getInstance().getFullName());
+        textView.setText(FeatureContraoller.getInstance().userDetails.get(0).getName().toString());
        getLog();
 
         LogAdapter adapter=new LogAdapter(gamenm,point,PointsLogActivity.this,date);
