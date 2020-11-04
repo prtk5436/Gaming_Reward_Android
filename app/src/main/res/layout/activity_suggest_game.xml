@@ -108,21 +108,21 @@
             />
     </LinearLayout>
 
-    <TextView
-        android:id="@+id/scr"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/layout"
-        android:layout_alignBaseline="@id/screenShot"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="16dp"
-        android:onClick="onImageupload"
-        android:text="Upload Game Logo:"
-        android:textColor="#FB8C00"
-        android:textSize="20dp"
-        android:textStyle="bold" />
+            <TextView
+                android:id="@+id/scr"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/layout"
+                android:layout_alignBaseline="@id/screenShot"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="16dp"
+                android:onClick="onImageupload"
+                android:text="Upload Game Logo:"
+                android:textColor="#FB8C00"
+                android:textSize="20dp"
+                android:textStyle="bold" />
 
-    <ImageView
+            <ImageView
 
         android:id="@+id/screenShot"
         android:layout_width="wrap_content"
