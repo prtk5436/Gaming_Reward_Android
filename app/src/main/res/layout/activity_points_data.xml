@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
     tools:context=".PointsForm.PointsDataForm">
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/gameicon"
@@ -120,7 +119,7 @@
         android:background="@drawable/shapelogin"
         android:padding="15dp"
         android:shadowColor="@android:color/transparent"
-        android:text="Score"
+        android:text="Submit"
         android:textColor="#fff"
         android:onClick="submitScore"
         android:textStyle="bold"

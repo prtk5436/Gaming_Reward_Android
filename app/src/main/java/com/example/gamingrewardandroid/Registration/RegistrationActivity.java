@@ -161,15 +161,13 @@ private Spinner spintype;
                 Toast.makeText(getApplicationContext(), "Please Enter Name", Toast.LENGTH_LONG).show();
             } else if (mobile.equals("")) {
                 Toast.makeText(getApplicationContext(), "Please Enter Mobile Number", Toast.LENGTH_LONG).show();
-            }
-            else if (!pass.equals(schoolId)) {
-                Toast.makeText(getApplicationContext(), "Please Enter Same Password and Confirm password", Toast.LENGTH_LONG).show();
-            }   else if (cattype.equals("Select user Type")) {
+            } else if (!pass.equals(schoolId)) {
+                 Toast.makeText(getApplicationContext(), "Please Enter Same Password and Confirm password", Toast.LENGTH_LONG).show();
+            }else if (cattype.equals("Select user Type")) {
                 Toast.makeText(getApplicationContext(), "Please Select User Type", Toast.LENGTH_LONG).show();
             }else if (schoolId.equals("")) {
                 Toast.makeText(getApplicationContext(), "Please Enter confirm password", Toast.LENGTH_LONG).show();
-            } else
-            {
+            } else {
                 pBar2.setVisibility(View.VISIBLE);
 
                 StudentRegistrationInput r = new StudentRegistrationInput();

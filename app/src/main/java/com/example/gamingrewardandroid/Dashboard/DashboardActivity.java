@@ -200,18 +200,36 @@ public class DashboardActivity extends AppCompatActivity{
             @Override
             public void onResponse(Call<PointLogOuput> call, Response<PointLogOuput> response) {
                 if (response.body().getResponseStatus()==200){
-                    log=response.body().getUserProfile();
+                    try {
+                        log=response.body().getUserProfile();
+                        int size=log.size();
+                        gamenm=new String[size];
+                        point=new String[size];
+                        dt=new String[size];
+                        int j=0;
+
+                        for (int i=size-1;i>=0;i--){
+                            gamenm[j]=log.get(i).getGameName().toString();
+                            point[j]=log.get(i).getGainPoints().toString();
+                            dt[j]=log.get(i).getDate().toString();
+                            j++;
+                        }
+
+
+                    }catch (Exception E){}
+/*                    log=response.body().getUserProfile();
                     int size=log.size();
                     gamenm=new String[size];
                     point=new String[size];
                     dt=new String[size];
                     int j=0;
+
                     for (int i=size-1;i>=0;i--){
                         gamenm[j]=log.get(i).getGameName().toString();
                         point[j]=log.get(i).getGainPoints().toString();
                         dt[j]=log.get(i).getDate().toString();
                         j++;
-                    }
+                    }*/
 
 
                 }
