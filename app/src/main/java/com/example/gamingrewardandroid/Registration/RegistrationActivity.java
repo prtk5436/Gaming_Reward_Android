@@ -12,6 +12,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
@@ -53,7 +54,18 @@ private Spinner spintype;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registration);
         init();
-
+ csm.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+     @Override
+     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+         if(isChecked){
+             ll.setVisibility(View.VISIBLE);
+         }
+         else
+         {
+             ll.setVisibility(View.GONE);
+         }
+     }
+ });
         if(csm.isChecked())
         {
             ll.setVisibility(View.VISIBLE);
