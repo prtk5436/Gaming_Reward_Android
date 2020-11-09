@@ -48,6 +48,18 @@ public class StudentRegistrationInput {
     @Expose
     private String smartcookieMemberId;
 
+    public String getSmc_password() {
+        return smc_password;
+    }
+
+    public void setSmc_password(String smc_password) {
+        this.smc_password = smc_password;
+    }
+
+    @SerializedName("smc_password")
+    @Expose
+    private String smc_password;
+
     public String getOperation() {
         return operation;
     }

@@ -38,10 +38,10 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="vertical"
             android:layout_marginLeft="40dp"
-            android:layout_marginRight="40dp">
+            android:layout_marginRight="40dp"
+            android:gravity="center"
+            android:orientation="vertical">
 
             <ImageView
                 android:layout_width="100dp"
@@ -130,8 +130,7 @@
                 android:padding="15dp"
                 android:textColor="@color/black"
                 android:textColorHighlight="@color/white"
-                android:textColorHint="@color/black"
-                />
+                android:textColorHint="@color/black" />
 
             <EditText
                 android:id="@+id/et_mobile"
@@ -147,8 +146,7 @@
                 android:padding="15dp"
                 android:textColor="@color/black"
                 android:textColorHighlight="@color/black"
-                android:textColorHint="@color/black"
-                />
+                android:textColorHint="@color/black" />
 
             <EditText
                 android:id="@+id/etemail"
@@ -157,15 +155,14 @@
                 android:layout_margin="10dp"
                 android:background="@drawable/shapeemail"
                 android:drawablePadding="10dp"
-                android:hint="Enter Email ID"
                 android:gravity="center"
+                android:hint="Enter Email ID"
                 android:padding="15dp"
 
                 android:textColor="@color/black"
 
                 android:textColorHighlight="@color/black"
-                android:textColorHint="@color/black"
-                />
+                android:textColorHint="@color/black" />
 
             <EditText
                 android:id="@+id/et_pass"
@@ -174,14 +171,14 @@
                 android:layout_margin="10dp"
                 android:background="@drawable/shapeemail"
                 android:drawablePadding="10dp"
+                android:gravity="center"
                 android:hint="Set Password"
                 android:inputType="textPassword"
                 android:padding="15dp"
                 android:textColor="@color/black"
-                android:gravity="center"
                 android:textColorHighlight="@color/black"
-                android:textColorHint="@color/black"
-                />
+                android:textColorHint="@color/black" />
+
             <EditText
                 android:id="@+id/et_cnfpass"
                 android:layout_width="match_parent"
@@ -189,15 +186,65 @@
                 android:layout_margin="10dp"
                 android:background="@drawable/shapeemail"
                 android:drawablePadding="10dp"
+                android:gravity="center"
                 android:hint="Confirm password"
                 android:inputType="textPassword"
                 android:padding="15dp"
                 android:textColor="@color/black"
-                android:gravity="center"
                 android:textColorHighlight="@color/black"
-                android:textColorHint="@color/black"
-                />
+                android:textColorHint="@color/black" />
 
+
+            <CheckBox
+                android:id="@+id/check_smc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp"
+                android:text="Connect to Smart Cookie"
+                android:textSize="18dp" />
+
+
+            <LinearLayout
+                android:id="@+id/ll"
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <EditText
+
+                    android:id="@+id/et_scmem_id"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/shapeemail"
+                    android:drawablePadding="10dp"
+                    android:gravity="center"
+                    android:hint="Smartcookie member id"
+                    android:inputType="textPersonName"
+                    android:padding="15dp"
+                    android:textColor="@color/black"
+                    android:textColorHighlight="@color/black"
+                    android:textColorHint="@color/black" />
+
+                <EditText
+                    android:id="@+id/et_scmem_pass"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/shapeemail"
+                    android:drawablePadding="10dp"
+                    android:gravity="center"
+                    android:hint="Smartcookie member password "
+                    android:inputType="textPassword"
+                    android:padding="15dp"
+                    android:textColor="@color/black"
+                    android:textColorHighlight="@color/black"
+                    android:textColorHint="@color/black" />
+            </LinearLayout>
 
             <Button
                 android:id="@+id/btnRegistration"
@@ -212,8 +259,8 @@
                 android:shadowColor="@android:color/transparent"
                 android:text="Register"
                 android:textColor="@color/black"
-                android:textStyle=""
-                android:textSize="18dp"/>
+                android:textSize="18dp"
+                android:textStyle="" />
 
             <TextView
                 android:id="@+id/tvlogin"
@@ -229,6 +276,7 @@
                 android:textColor="#fff"
                 android:textStyle="bold"
                 android:visibility="gone" />
+
         </LinearLayout>
     </ScrollView>
 

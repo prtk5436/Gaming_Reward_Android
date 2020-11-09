@@ -11,7 +11,9 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -35,12 +37,15 @@ import retrofit2.Response;
 public class RegistrationActivity extends AppCompatActivity implements  AdapterView.OnItemSelectedListener{
 TextView tv1,tvRegister;
 Button btnRegistration;
-EditText et_name,et_pass,et_mobile, etSchoolId,etemail;
+CheckBox csm;
+EditText et_name,et_pass,et_mobile, etSchoolId,etemail,edtsmcid,edtsmcpass;
 private ProgressBar pBar2;
 private RadioGroup rdg_app_type;
 private RadioButton rbtn_dev,rbtn_test,rbtn_production;
 SharedPreferences.Editor editor;
 private SharedPreferences pref;
+LinearLayout ll;
+
 private Spinner spintype;
 
     @Override
@@ -49,6 +54,10 @@ private Spinner spintype;
         setContentView(R.layout.activity_registration);
         init();
 
+        if(csm.isChecked())
+        {
+            ll.setVisibility(View.VISIBLE);
+        }
        /* tvRegister=(TextView) findViewById(R.id.tv1);
         tvRegister.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -143,6 +152,8 @@ private Spinner spintype;
         String pass = et_pass.getText().toString().trim();
         String mobile = et_mobile.getText().toString();
         String schoolId = etSchoolId.getText().toString();
+        String smcid=edtsmcid.getText().toString();
+        String smcpass=edtsmcpass.getText().toString();
 
         //String cattype=spintype.getSelectedItem().toString();
 
@@ -181,7 +192,8 @@ private Spinner spintype;
 
 
                 r.setEmail(email);
-
+                r.setSmartcookieMemberId(smcid);
+                r.setSmc_password(smcpass);
 
 
                 Log.e("TAG", "registration input: "+new Gson().toJson(r) );
@@ -197,17 +209,15 @@ private Spinner spintype;
                             if (response.body().getResponseStatus().equals(200))
                             {
 
-                                Toast.makeText(getApplicationContext(), " Registered Successfully ", Toast.LENGTH_LONG).show();
+                                Toast.makeText(getApplicationContext(), response.body().getResponseMessage().toString(), Toast.LENGTH_LONG).show();
                                 finish();
                                 Intent i = new Intent(RegistrationActivity.this, LoginActivity.class);
                                 startActivity(i);
-                            } else if(response.body().getResponseStatus().equals(409))
+                            } else
                             {
-                                Toast.makeText(getApplicationContext(), "User Already Exist", Toast.LENGTH_LONG).show();
-                            } else if(response.body().getResponseStatus().equals(1000)){
-                                Toast.makeText(getApplicationContext(), "Invalid Input", Toast.LENGTH_LONG).show();
-                            }else if(response.body().getResponseStatus().equals(409)){
-                                Toast.makeText(getApplicationContext(), "Please Enter Valid School Id", Toast.LENGTH_LONG).show();
+
+                                Toast.makeText(getApplicationContext(), response.body().getResponseMessage().toString(), Toast.LENGTH_LONG).show();
+
                             }
                         }
 
@@ -243,6 +253,10 @@ private Spinner spintype;
         rbtn_test = (RadioButton) findViewById(R.id.rbtn_test);
         rbtn_production = (RadioButton) findViewById(R.id.rbtn_production);
         btnRegistration=(Button)findViewById(R.id.btnRegistration);
+        edtsmcid=(EditText)findViewById(R.id.et_scmem_id);
+        edtsmcpass=findViewById(R.id.et_scmem_pass);
+        ll=findViewById(R.id.ll);
+        csm=findViewById(R.id.check_smc);
     }
 
 
