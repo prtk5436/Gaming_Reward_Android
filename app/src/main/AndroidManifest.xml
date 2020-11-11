@@ -13,7 +13,9 @@
         android:roundIcon="@drawable/b"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".PointsLog.PointsLogActivity"></activity>
+        <activity android:name=".LeaderBoard.LeaderBoard"></activity>
+      
+        <activity android:name=".PointsLog.PointsLogActivity" />
         <activity android:name=".PointsForm.PointsEarnedActivity" />
         <activity android:name=".SplashScreen">
             <intent-filter>

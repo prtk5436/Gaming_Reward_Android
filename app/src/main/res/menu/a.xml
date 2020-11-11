@@ -5,6 +5,9 @@
         android:id="@+id/menu_profile"
         android:title="Profile"/>
     <item
+        android:id="@+id/leader"
+        android:title="LeaderBoard"/>
+    <item
         android:id="@+id/menu_log"
         android:title="PointsLog"/>
 

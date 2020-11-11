@@ -7,6 +7,8 @@ import com.example.gamingrewardandroid.GamerProfile.ProfileInPut;
 import com.example.gamingrewardandroid.GamerProfile.ProfileShowOutPut;
 import com.example.gamingrewardandroid.GamerProfile.UpdateProfileInput;
 import com.example.gamingrewardandroid.GamerProfile.UpdateProfileOutput;
+import com.example.gamingrewardandroid.LeaderBoard.LeaderBoardInput;
+import com.example.gamingrewardandroid.LeaderBoard.LeaderBoardOutput;
 import com.example.gamingrewardandroid.LoginStudent.LoginInput;
 import com.example.gamingrewardandroid.LoginStudent.LoginOutput;
 import com.example.gamingrewardandroid.PointsForm.AssignPointsInput;
@@ -31,6 +33,9 @@ public interface AuthenticationApi {
 
     @POST ("core/webservice_game.php")
     Call<OutputPoints> getStudentPoints(@Body InputPoints d);
+    @POST ("core/webservice_game.php")
+    Call<LeaderBoardOutput> getLeader(@Body LeaderBoardInput d);
+
     //updateprofile
     @POST ("core/webservice_game.php")
     Call<UpdateProfileOutput> updateProfile(@Body UpdateProfileInput d);

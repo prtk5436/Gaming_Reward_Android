@@ -30,6 +30,7 @@ import com.example.gamingrewardandroid.AuthenticationApi;
 
 import com.example.gamingrewardandroid.FeatureContraoller;
 import com.example.gamingrewardandroid.GamerProfile.GamerProfileActivity;
+import com.example.gamingrewardandroid.LeaderBoard.LeaderBoard;
 import com.example.gamingrewardandroid.LoginStudent.LoginActivity;
 import com.example.gamingrewardandroid.Model.Post;
 import com.example.gamingrewardandroid.Model.Posts1;
@@ -183,6 +184,12 @@ public class DashboardActivity extends AppCompatActivity{
                 startActivity(new Intent(DashboardActivity.this, GamerProfileActivity.class));
 
                 return  true;
+                case R.id.leader:
+                startActivity(new Intent(DashboardActivity.this, LeaderBoard.class));
+
+                return  true;
+
+
             default:   return super.onOptionsItemSelected(item);
         }
 
