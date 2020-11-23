@@ -27,6 +27,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.gamingrewardandroid.AuthenticationApi;
 import com.example.gamingrewardandroid.LoginStudent.LoginActivity;
 import com.example.gamingrewardandroid.R;
+import com.example.gamingrewardandroid.SmartcookieRegistration.SmartcookieRegistration;
 import com.example.gamingrewardandroid.WebServiceClasses.ApiClient;
 import com.example.gamingrewardandroid.WebServiceClasses.WebserviceConstant;
 import com.google.gson.Gson;
@@ -36,7 +37,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class RegistrationActivity extends AppCompatActivity implements  AdapterView.OnItemSelectedListener{
-TextView tv1,tvRegister;
+TextView tv1,tvRegister,t2;
 Button btnRegistration;
 CheckBox csm;
 EditText et_name,et_pass,et_mobile, etSchoolId,etemail,edtsmcid,edtsmcpass;
@@ -54,6 +55,15 @@ private Spinner spintype;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registration);
         init();
+
+        t2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i=new Intent(RegistrationActivity.this, SmartcookieRegistration.class);
+                startActivity(i);
+            }
+        });
+
  csm.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
      @Override
      public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -269,6 +279,7 @@ private Spinner spintype;
         edtsmcpass=findViewById(R.id.et_scmem_pass);
         ll=findViewById(R.id.ll);
         csm=findViewById(R.id.check_smc);
+        t2=findViewById(R.id.tv2);
     }
 
 

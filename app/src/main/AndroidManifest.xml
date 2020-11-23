@@ -13,8 +13,8 @@
         android:roundIcon="@drawable/b"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".LeaderBoard.LeaderBoard"></activity>
-      
+        <activity android:name=".SmartcookieRegistration.SmartcookieRegistration"></activity>
+        <activity android:name=".LeaderBoard.LeaderBoard" />
         <activity android:name=".PointsLog.PointsLogActivity" />
         <activity android:name=".PointsForm.PointsEarnedActivity" />
         <activity android:name=".SplashScreen">

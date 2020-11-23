@@ -19,6 +19,8 @@ import com.example.gamingrewardandroid.PointsLog.PointLogInput;
 import com.example.gamingrewardandroid.PointsLog.PointLogOuput;
 import com.example.gamingrewardandroid.Registration.StudentRegistraionOutput;
 import com.example.gamingrewardandroid.Registration.StudentRegistrationInput;
+import com.example.gamingrewardandroid.SmartcookieRegistration.SmcInput;
+import com.example.gamingrewardandroid.SmartcookieRegistration.SmcOutput;
 import com.example.gamingrewardandroid.StudentsPoints.InputPoints;
 import com.example.gamingrewardandroid.StudentsPoints.OutputPoints;
 import com.example.gamingrewardandroid.SuggestGame.SuggestGameInput;
@@ -53,6 +55,8 @@ public interface AuthenticationApi {
     Call<PointLogOuput> getUserLog(@Body PointLogInput r);
     @POST("core/webservice_game.php")
     Call<AssignPointsOutput> getSelfReward(@Body AssignPointsInput r);
+    @POST("core/Version3/quickregistration_ws_v1.php")
+    Call<SmcOutput>smc(@Body SmcInput s);
 
     @POST(WebserviceConstant.GAME_API)
     Call<ReawardParameterOutput> getGameParameterList(@Body RewardParameterInput g);
