@@ -19,6 +19,8 @@ import com.example.gamingrewardandroid.PointsLog.PointLogInput;
 import com.example.gamingrewardandroid.PointsLog.PointLogOuput;
 import com.example.gamingrewardandroid.Registration.StudentRegistraionOutput;
 import com.example.gamingrewardandroid.Registration.StudentRegistrationInput;
+import com.example.gamingrewardandroid.SmartcookieRegistration.SchoolidValidation.SchoolidInput;
+import com.example.gamingrewardandroid.SmartcookieRegistration.SchoolidValidation.SchoolidOutput;
 import com.example.gamingrewardandroid.SmartcookieRegistration.SmcInput;
 import com.example.gamingrewardandroid.SmartcookieRegistration.SmcOutput;
 import com.example.gamingrewardandroid.StudentsPoints.InputPoints;
@@ -29,6 +31,7 @@ import com.example.gamingrewardandroid.WebServiceClasses.WebserviceConstant;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
+import retrofit2.http.GET;
 import retrofit2.http.POST;
 
 public interface AuthenticationApi {
@@ -57,6 +60,9 @@ public interface AuthenticationApi {
     Call<AssignPointsOutput> getSelfReward(@Body AssignPointsInput r);
     @POST("core/Version3/quickregistration_ws_v1.php")
     Call<SmcOutput>smc(@Body SmcInput s);
+
+    @POST("core/Version3/quick_register_search.php")
+    Call<SchoolidOutput>schoolId(@Body SchoolidInput sc);
 
     @POST(WebserviceConstant.GAME_API)
     Call<ReawardParameterOutput> getGameParameterList(@Body RewardParameterInput g);

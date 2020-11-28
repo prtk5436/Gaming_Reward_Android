@@ -11,19 +11,19 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
-        android:orientation="vertical"
-        android:background="#FB8C00">
+        android:background="#FB8C00"
+        android:orientation="vertical">
 
         <TextView
             android:id="@+id/textView3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
             android:gravity="center"
             android:text="SmartCookie Student Registration"
+            android:textColor="@color/white"
             android:textSize="20dp"
-            android:textStyle="bold"
-            android:layout_marginTop="10dp"
-            android:textColor="@color/white"/>
+            android:textStyle="bold" />
 
         <androidx.cardview.widget.CardView
             android:id="@+id/card_view"
@@ -31,9 +31,8 @@
             android:layout_height="100dp"
             android:layout_gravity="center"
             android:layout_marginTop="20dp"
-            app:cardCornerRadius="8dp"
             android:layout_marginBottom="30dp"
-            >
+            app:cardCornerRadius="8dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -48,11 +47,11 @@
                     android:layout_marginRight="20dp"
                     android:ems="10"
                     android:gravity="center"
-                    android:inputType="textPersonName"
-                    android:text="Enter School Id " />
+                    android:hint="Enter School Id "
+                    android:inputType="textPersonName" />
 
                 <Button
-                    android:id="@+id/button"
+                    android:id="@+id/btn_val"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"

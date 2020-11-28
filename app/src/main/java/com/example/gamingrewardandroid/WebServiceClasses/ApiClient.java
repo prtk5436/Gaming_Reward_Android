@@ -34,7 +34,7 @@ public class ApiClient {
     public static Retrofit getClient() {
         if (retrofit==null) {
             retrofit = new Retrofit.Builder()
-                    .baseUrl("https://dev.smartcookie.in/")
+                    .baseUrl(WebserviceConstant.BASE_URL)
                     //.client(client)
                     .addConverterFactory(GsonConverterFactory.create())
                     .build();
