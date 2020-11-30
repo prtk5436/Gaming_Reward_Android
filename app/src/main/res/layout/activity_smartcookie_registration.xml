@@ -39,6 +39,9 @@
                 android:layout_height="match_parent"
                 android:orientation="vertical">
 
+
+
+
                 <EditText
                     android:id="@+id/edt_schoolid"
                     android:layout_width="wrap_content"
@@ -49,6 +52,14 @@
                     android:gravity="center"
                     android:hint="Enter School Id "
                     android:inputType="textPersonName" />
+                <ProgressBar
+                    android:id="@+id/pbar3"
+                    style="?android:attr/horizontalGap"
+                    android:layout_width="250dp"
+                    android:layout_height="30dp"
+                    android:theme="@style/ProgressBar"
+                    android:visibility="gone"
+                    tools:ignore="NewApi" />
 
                 <Button
                     android:id="@+id/btn_val"
@@ -59,6 +70,7 @@
                     android:backgroundTint="#FB8C00"
                     android:text="Validate"
                     android:textSize="16dp" />
+
             </LinearLayout>
 
         </androidx.cardview.widget.CardView>
@@ -76,7 +88,6 @@
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             >
@@ -94,10 +105,11 @@
 
                 <LinearLayout
                     android:id="@+id/l1"
-
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
+
+
 
                     <EditText
                         android:id="@+id/edt_firstnm"
@@ -212,7 +224,14 @@
                         android:text="Plateform source"
                         android:textColor="@color/black"
                         android:textSize="18dp" />
-
+                    <ProgressBar
+                        android:id="@+id/pbar4"
+                        style="?android:attr/horizontalGap"
+                        android:layout_width="290dp"
+                        android:layout_height="30dp"
+                        android:theme="@style/ProgressBar"
+                        android:visibility="gone"
+                        tools:ignore="NewApi"/>
                     <Button
                         android:id="@+id/btn_reg"
                         android:layout_width="wrap_content"

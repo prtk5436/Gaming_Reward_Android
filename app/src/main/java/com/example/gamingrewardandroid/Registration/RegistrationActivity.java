@@ -103,7 +103,7 @@ private Spinner spintype;
         pref = getSharedPreferences("user_details",MODE_PRIVATE);
         editor = pref.edit();
         //Env start
-        if(rdg_app_type.getVisibility() == View.VISIBLE) {
+     /*   if(rdg_app_type.getVisibility() == View.VISIBLE) {
             if (pref.getString("apptype","").equals(WebserviceConstant.TEST)) {
                 rbtn_test.setChecked(true);
                 WebserviceConstant.setAppType(WebserviceConstant.TEST);
@@ -143,7 +143,7 @@ private Spinner spintype;
             }
         });
         //Env end
-
+*/
 
         btnRegistration.setOnClickListener(new View.OnClickListener() {
             @Override

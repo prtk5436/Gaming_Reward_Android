@@ -14,6 +14,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ApiClient {
     private static Retrofit retrofit = null;
+    private static Retrofit retrofit1 = null;
 
     static OkHttpClient client = new OkHttpClient().newBuilder()
             .connectTimeout(15000, TimeUnit.MICROSECONDS)
@@ -42,4 +43,16 @@ public class ApiClient {
         Log.i("BAseUrl", WebserviceConstant.BASE_URL);
         return retrofit;
     }
+    public static Retrofit getClient1() {
+        if (retrofit1==null) {
+            retrofit1 = new Retrofit.Builder()
+                    .baseUrl("https://test.smartcookie.in/")
+                    //.client(client)
+                    .addConverterFactory(GsonConverterFactory.create())
+                    .build();
+        }
+        Log.i("BAseUrl", WebserviceConstant.BASE_URL);
+        return retrofit1;
+    }
+
 }

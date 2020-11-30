@@ -13,7 +13,7 @@ public class WebserviceConstant {
     //public static final String BASE_URL = "https://test.smartcookie.in/";
     public static String BASE_URL = "https://dev.smartcookie.in";
      //public static final String BASE_URL = "https://smartcookie.in/";
-     public static String BASE_URL1 = "smartcookie.in/core/";
+    // public static String BASE_URL1 = "smartcookie.in/core/";
 
    //public static String BASE_URL = "http://192.168.1.161/";
    public static final String STUDENT_LOGIN_V3 = "core/webservice_game.php";
@@ -88,7 +88,7 @@ public class WebserviceConstant {
 
   */
 
-    public static void setAppType(String Apptype) {
+   /* public static void setAppType(String Apptype) {
         if (Apptype.equals(WebserviceConstant.TEST)) {
 
             BASE_URL ="https://test.smartcookie.in/";
@@ -102,7 +102,7 @@ public class WebserviceConstant {
             BASE_URL = "https://dev.smartcookie.in/";         // http://www.smartcookie.in/core/Version2/social_login_webservice.php
             //BASE_URL = "https://smartcookie.in/";
         }
-    }
+    }*/
 
 
 
