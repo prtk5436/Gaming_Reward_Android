@@ -15,16 +15,20 @@
     android:textStyle="bold"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"/>
+
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/swipRefresh"
-        ><androidx.recyclerview.widget.RecyclerView
+        android:layout_below="@+id/txt"
+        >
+        <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/leaderrecycle"
         android:layout_below="@id/txt"
         android:layout_marginTop="10dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
-    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
 </RelativeLayout>

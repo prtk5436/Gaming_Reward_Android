@@ -135,6 +135,15 @@
         android:padding="5dp"
         android:src="@drawable/camera" />
 
+            <ProgressBar
+                android:id="@+id/pBar5"
+                style="?android:attr/horizontalGap"
+                android:layout_width="290dp"
+                android:layout_height="wrap_content"
+                android:theme="@style/ProgressBar"
+                android:visibility="gone"
+                tools:ignore="NewApi" />
+
     <Button
         android:onClick="onSubmitReq"
         android:layout_margin="30dp"

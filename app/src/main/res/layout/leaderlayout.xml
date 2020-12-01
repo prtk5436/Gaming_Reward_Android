@@ -12,20 +12,21 @@
             android:id="@+id/img"
             android:layout_width="80dp"
             android:src="@drawable/b"
-            android:layout_marginLeft="30dp"
+            android:layout_marginLeft="20dp"
             android:layout_height="80dp"/>
-        <TextView
 
-            android:text="dhru"
-            android:layout_toRightOf="@id/img"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="40dp"
-            android:textSize="20dp"
-            android:textColor="@color/black"
+        <TextView
 
             android:id="@+id/gamernm"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20dp"
+            android:layout_toRightOf="@id/img"
+            android:layout_marginRight="10dp"
+            android:text="dhru"
+            android:textColor="@color/black"
+            android:textSize="20dp" />
         <TextView
             android:id="@+id/pts"
             android:layout_alignParentRight="true"
@@ -35,6 +36,7 @@
             android:textColor="@color/black"
             android:layout_centerVertical="true"
             android:layout_marginRight="30dp"
+            android:layout_marginLeft="30dp"
             android:layout_height="wrap_content"/>
     </RelativeLayout>
 

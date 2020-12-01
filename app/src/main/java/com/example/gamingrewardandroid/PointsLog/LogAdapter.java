@@ -40,7 +40,7 @@ public class LogAdapter extends RecyclerView.Adapter<LogAdapter.MyLog> {
 
         holder.gamename.setText(gamename[position]);
         holder.dates.setText(""+date[position]);
-        holder.points.setText(points[position]+"\nPoints");
+        holder.points.setText(points[position]/*+"\nPoints"*/);
 
     }
 

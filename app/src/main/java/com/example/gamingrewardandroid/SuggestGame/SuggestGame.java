@@ -24,6 +24,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageSwitcher;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.example.gamingrewardandroid.AuthenticationApi;
@@ -43,6 +44,7 @@ public class SuggestGame extends AppCompatActivity {
     private static final int PERMISSION_REQUEST_CODE = 1;
     EditText edt_gamename,edt_param1,edt_param2,edt_param3;
     ImageView gameimg;
+    ProgressBar pbar5;
     String base64String = "";
     private Bitmap bm;
     byte[] bb = null;
@@ -63,6 +65,8 @@ public class SuggestGame extends AppCompatActivity {
         edt_param2=findViewById(R.id.edt_parameter2);
         edt_param3=findViewById(R.id.edt_parameter3);
         gameimg=findViewById(R.id.screenShot);
+        pbar5=findViewById(R.id.pBar5);
+
     }
     private boolean checkExtPermission() {
         int result = ContextCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.WRITE_EXTERNAL_STORAGE);
@@ -216,6 +220,7 @@ public class SuggestGame extends AppCompatActivity {
     }
 
     private void submitdata() {
+        pbar5.setVisibility(View.VISIBLE);
         AuthenticationApi api= ApiClient.getClient().create(AuthenticationApi.class);
         SuggestGameInput i=new SuggestGameInput();
         i.setOperation("Suggest_game_for_rewards");
@@ -227,6 +232,7 @@ public class SuggestGame extends AppCompatActivity {
         call.enqueue(new Callback<SuggestGameOutput>() {
             @Override
             public void onResponse(Call<SuggestGameOutput> call, Response<SuggestGameOutput> response) {
+              pbar5.setVisibility(View.GONE);
                 if (response.body()!=null){
                     if (response.body().getResponseStatus()==200){
                         Toast.makeText(SuggestGame.this,response.body().getResponseMessage(),Toast.LENGTH_LONG).show();
@@ -241,7 +247,7 @@ public class SuggestGame extends AppCompatActivity {
             }
             @Override
             public void onFailure(Call<SuggestGameOutput> call, Throwable t) {
-
+            pbar5.setVisibility(View.GONE);
             }
         });
     }
