@@ -3,6 +3,7 @@ package com.example.gamingrewardandroid.PointsLog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -44,6 +45,17 @@ public class PointsLogActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setHasFixedSize(true);
         recyclerView.setAdapter(adapter);
+
+        //Refresh page
+        final SwipeRefreshLayout swipeRefreshLayout;
+        swipeRefreshLayout=findViewById(R.id.swipRefresh);
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                getLog();
+                swipeRefreshLayout.setRefreshing(false);
+            }
+        });
 
     }
 

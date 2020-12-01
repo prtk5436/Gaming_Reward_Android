@@ -25,6 +25,8 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+
 
 import com.example.gamingrewardandroid.AuthenticationApi;
 
@@ -55,6 +57,7 @@ import retrofit2.Response;
 //pramod khandare10-01-2019
 public class DashboardActivity extends AppCompatActivity{
     ImageButton btnoption;
+    SwipeRefreshLayout swipeRefreshLayout;
 
     RecyclerView recyclerView;
     private ListView playerslist;
@@ -75,6 +78,7 @@ public class DashboardActivity extends AppCompatActivity{
     public  String [] dt;
     List<UserLog> log;
 
+
     private Toolbar toolbar;
     private ArrayAdapter playerlistAdapter;
     FeatureContraoller featureContraoller;
@@ -91,11 +95,22 @@ public class DashboardActivity extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.dashboard_activity);
+
         //displaySpectatorPoints();
         Log.i("In OnCreate", "In OnCreate");
         getlist();
 
         init();
+
+        //refreshing page
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                getStudentPoints();
+
+                swipeRefreshLayout.setRefreshing(false);
+            }
+        });
 
 
         // pref = getSharedPreferences("user_details",MODE_PRIVATE);
@@ -116,6 +131,7 @@ public class DashboardActivity extends AppCompatActivity{
         recyclerView.setHasFixedSize(true);
         recyclerView.setAdapter(gameListAdaptor);
     }
+
 
     private void getlist() {
         gamelist=FeatureContraoller.getInstance().getGamelist();
@@ -144,6 +160,7 @@ public class DashboardActivity extends AppCompatActivity{
         //playerslist = (ListView) findViewById(R.id.player_list);
         //ratingbar = (RatingBar)findViewById(R.id.ratingBar);
         pBar1 = (ProgressBar) findViewById(R.id.pBar1);
+        swipeRefreshLayout=findViewById(R.id.swipRefresh);
     }
 
     @Override

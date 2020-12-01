@@ -181,14 +181,19 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/swipRefresh"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            >
         <androidx.recyclerview.widget.RecyclerView
 
-            android:layout_height="wrap_content"
+            android:id="@+id/recycler_loglist"
             android:layout_width="match_parent"
-            android:id="@+id/recycler_loglist" />
+            android:layout_height="wrap_content" />
 
-
-
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
     </LinearLayout>
 
 

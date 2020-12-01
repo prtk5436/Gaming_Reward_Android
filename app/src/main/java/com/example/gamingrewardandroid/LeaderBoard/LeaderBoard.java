@@ -3,6 +3,7 @@ package com.example.gamingrewardandroid.LeaderBoard;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.os.Bundle;
 
@@ -27,6 +28,16 @@ public class LeaderBoard extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_leader_board);
         getLeader();
+        //refresh page
+        final SwipeRefreshLayout swipeRefreshLayout;
+        swipeRefreshLayout=findViewById(R.id.swipRefresh);
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                getLeader();
+                swipeRefreshLayout.setRefreshing(false);
+            }
+        });
     }
 
     private void getLeader() {
