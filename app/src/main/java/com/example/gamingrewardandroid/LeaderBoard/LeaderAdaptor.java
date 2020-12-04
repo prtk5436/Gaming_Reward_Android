@@ -38,7 +38,7 @@ public class LeaderAdaptor extends RecyclerView.Adapter<LeaderAdaptor.Leader> {
     @Override
     public void onBindViewHolder(@NonNull LeaderAdaptor.Leader holder, int position) {
         holder.leadername.setText(leaders.get(position).getGamerName().toString());
-        holder.score.setText(leaders.get(position).getPoints().toString()+" Points");
+        holder.score.setText(leaders.get(position).getPoints().toString()+" \nPoints");
     }
 
     @Override
