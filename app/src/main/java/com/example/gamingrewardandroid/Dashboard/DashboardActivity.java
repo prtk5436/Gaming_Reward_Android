@@ -3,18 +3,16 @@ package com.example.gamingrewardandroid.Dashboard;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Build;
 import android.os.Bundle;
-
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ListView;
-import android.widget.PopupMenu;
 import android.widget.ProgressBar;
 import android.widget.RatingBar;
 import android.widget.TextView;
@@ -22,14 +20,13 @@ import android.widget.Toast;
 import android.widget.Toolbar;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
-
 import com.example.gamingrewardandroid.AuthenticationApi;
-
 import com.example.gamingrewardandroid.FeatureContraoller;
 import com.example.gamingrewardandroid.GamerProfile.GamerProfileActivity;
 import com.example.gamingrewardandroid.LeaderBoard.LeaderBoard;
@@ -91,6 +88,7 @@ public class DashboardActivity extends AppCompatActivity{
     SharedPreferences.Editor editor;
 
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -99,7 +97,6 @@ public class DashboardActivity extends AppCompatActivity{
         //displaySpectatorPoints();
         Log.i("In OnCreate", "In OnCreate");
         getlist();
-
         init();
 
         //refreshing page
@@ -113,16 +110,12 @@ public class DashboardActivity extends AppCompatActivity{
         });
 
 
+        //myPoints.setAutoSizeTextTypeUniformWithConfiguration(1, 17, 1, TypedValue.COMPLEX_UNIT_DIP);
         // pref = getSharedPreferences("user_details",MODE_PRIVATE);
         prf = getSharedPreferences("user_details",MODE_PRIVATE);
         String category = prf.getString("category","");
 
-
-
         getStudentPoints();
-
-
-
 
         myName.setText(FeatureContraoller.getInstance().getUserDetails().get(0).getName());
 

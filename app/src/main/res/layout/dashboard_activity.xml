@@ -64,16 +64,21 @@
 
             <TextView
                 android:id="@+id/myPoints"
-                android:layout_width="103dp"
-                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_height="51dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="10dp"
-                android:layout_toRightOf="@id/myName"
                 android:gravity="center"
                 android:text="0"
                 android:textColor="@color/white"
-                android:textSize="26dp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:layout_toRightOf="@id/myName"
+                app:autoSizeMaxTextSize="30sp"
+                app:autoSizeMinTextSize="15sp"
+                app:autoSizeStepGranularity="2sp"
+                app:autoSizeTextType="uniform"
+                />
+
 
             <TextView
                 android:layout_width="wrap_content"
@@ -84,7 +89,8 @@
                 android:layout_toRightOf="@id/myName"
                 android:text="Points"
                 android:textColor="@color/white"
-                android:textSize="25dp" />
+                android:textSize="20dp"
+                />
 
             <ImageButton
                 android:id="@+id/btn_option"
