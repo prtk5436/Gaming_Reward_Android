@@ -35,7 +35,7 @@
             android:layout_alignParentLeft="true"
             android:layout_gravity="center"
             android:layout_marginLeft="91dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="20dp"
             android:text="Pramod Khandare"
             android:textColor="@color/white"
             android:textSize="25dp"
@@ -50,46 +50,47 @@
             android:layout_marginTop="10dp"
             android:layout_marginRight="0dp"
             android:layout_toLeftOf="@id/l1"
-            android:background="@color/white" />
+            android:background="@color/white"
+            android:visibility="gone"/>
 
         <LinearLayout
             android:id="@+id/l1"
-            android:layout_width="98dp"
-            android:layout_height="99dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_alignParentRight="true"
             android:layout_marginLeft="0dp"
             android:layout_marginRight="5dp"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:layout_below="@id/myName"
+            android:visibility="gone"> </LinearLayout>
 
 
-            <TextView
-                android:id="@+id/myPoints"
-                android:layout_width="match_parent"
-                android:layout_height="51dp"
-                android:layout_gravity="center"
-                android:layout_marginTop="10dp"
-                android:gravity="center"
-                android:text="0"
-                android:textColor="@color/white"
-                android:textStyle="bold"
-                android:layout_toRightOf="@id/myName"
-                app:autoSizeMaxTextSize="30sp"
-                app:autoSizeMinTextSize="15sp"
-                app:autoSizeStepGranularity="2sp"
-                app:autoSizeTextType="uniform"
-                />
+        <TextView
+            android:id="@+id/myPoints"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/myName"
+            android:layout_gravity="center"
+            android:layout_marginTop="4dp"
+            android:layout_marginLeft="95dp"
+            android:gravity="center"
+            android:text="0 "
+            android:textColor="@color/white"
+            android:textSize="28dp"
+            android:textStyle="bold|italic"
+             />
 
-
-            <TextView
+        <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/myPoints"
+            android:layout_toRightOf="@id/myPoints"
                 android:layout_gravity="center"
-                android:layout_marginTop="0dp"
-                android:layout_toRightOf="@id/myName"
-                android:text="Points"
+                android:layout_marginTop="5dp"
+                android:text="  Points"
+            android:layout_below="@id/myName"
                 android:textColor="@color/white"
-                android:textSize="20dp"
+                android:textSize="25dp"
+
                 />
 
             <ImageButton
@@ -106,7 +107,7 @@
                 android:src="@drawable/floaticon"
                 android:visibility="gone"
                 tools:ignore="OnClick" />
-        </LinearLayout>
+
     </RelativeLayout>
 
     <LinearLayout

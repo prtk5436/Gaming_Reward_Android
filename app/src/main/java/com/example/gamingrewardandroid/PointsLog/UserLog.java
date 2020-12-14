@@ -22,10 +22,13 @@ public class UserLog {
     private String memberType;
     @SerializedName("gain_points")
     @Expose
-    private String gainPoints;
+    private Integer gainPoints;
     @SerializedName("date")
     @Expose
     private String date;
+    @SerializedName("game_image")
+    @Expose
+    private String gameImage;
 
     public String getGameId() {
         return gameId;
@@ -67,11 +70,11 @@ public class UserLog {
         this.memberType = memberType;
     }
 
-    public String getGainPoints() {
+    public Integer getGainPoints() {
         return gainPoints;
     }
 
-    public void setGainPoints(String gainPoints) {
+    public void setGainPoints(Integer gainPoints) {
         this.gainPoints = gainPoints;
     }
 
@@ -81,5 +84,13 @@ public class UserLog {
 
     public void setDate(String date) {
         this.date = date;
+    }
+
+    public String getGameImage() {
+        return gameImage;
+    }
+
+    public void setGameImage(String gameImage) {
+        this.gameImage = gameImage;
     }
 }

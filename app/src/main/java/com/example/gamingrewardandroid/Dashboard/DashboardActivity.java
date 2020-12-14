@@ -74,7 +74,7 @@ public class DashboardActivity extends AppCompatActivity{
     public String[] point;
     public  String [] dt;
     List<UserLog> log;
-
+    public String[] logimg;
 
     private Toolbar toolbar;
     private ArrayAdapter playerlistAdapter;
@@ -176,6 +176,7 @@ public class DashboardActivity extends AppCompatActivity{
                 intent.putExtra("gamee",gamenm);
                 intent.putExtra("pts",point);
                 intent.putExtra("dt",dt);
+                intent.putExtra("url",logimg);
                 startActivity(intent);
 
                 return true;
@@ -223,12 +224,16 @@ public class DashboardActivity extends AppCompatActivity{
                         gamenm=new String[size];
                         point=new String[size];
                         dt=new String[size];
+                        logimg=new String[size];
                         int j=0;
 
-                        for (int i=size-1;i>=0;i--){
+                        for (int i=size-1;i>=0;i--)
+
+                        {
                             gamenm[j]=log.get(i).getGameName().toString();
                             point[j]=log.get(i).getGainPoints().toString();
                             dt[j]=log.get(i).getDate().toString();
+                            logimg[j]=log.get(i).getGameImage().toString();
                             j++;
                         }
 

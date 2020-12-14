@@ -30,6 +30,7 @@ public class PointsLogActivity extends AppCompatActivity {
     List<UserLog> log;
     RecyclerView recyclerView;
     String [] date;
+    public String[] gameimg;
 
 
     @Override
@@ -39,9 +40,10 @@ public class PointsLogActivity extends AppCompatActivity {
         recyclerView=findViewById(R.id.recycler_loglist);
         textView=findViewById(R.id.myName);
         textView.setText(FeatureContraoller.getInstance().userDetails.get(0).getName().toString());
+
        getLog();
 
-        LogAdapter adapter=new LogAdapter(gamenm,point,PointsLogActivity.this,date);
+        LogAdapter adapter=new LogAdapter(gamenm,point,PointsLogActivity.this,date,gameimg);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setHasFixedSize(true);
         recyclerView.setAdapter(adapter);
@@ -63,5 +65,6 @@ public class PointsLogActivity extends AppCompatActivity {
         date=getIntent().getStringArrayExtra("dt");
         gamenm=getIntent().getStringArrayExtra("gamee");
         point=getIntent().getStringArrayExtra("pts");
+        gameimg=getIntent().getStringArrayExtra("url");
     }
 }

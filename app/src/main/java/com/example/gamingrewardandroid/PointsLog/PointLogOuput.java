@@ -42,3 +42,4 @@ public class PointLogOuput {
         this.userProfile = userProfile;
     }
 }
+
