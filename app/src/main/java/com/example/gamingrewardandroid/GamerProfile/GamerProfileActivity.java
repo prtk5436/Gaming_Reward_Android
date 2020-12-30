@@ -5,6 +5,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -26,7 +27,7 @@ public class GamerProfileActivity extends AppCompatActivity {
     String str_name, str_phone, str_email, str_pass, str_Cpass, str_add, str_city, str_state, str_zipcode, str_country, id;
     ImageView btn_edt;
     List<UserProfile> profile = null;
-
+    ProgressBar pbar7;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,7 +39,7 @@ public class GamerProfileActivity extends AppCompatActivity {
     }
 
     private void profileshow() {
-
+        pbar7.setVisibility(View.VISIBLE);
         AuthenticationApi api = ApiClient.getClient().create(AuthenticationApi.class);
         ProfileInPut i = new ProfileInPut();
         id = FeatureContraoller.getInstance().getUserid();
@@ -50,6 +51,7 @@ public class GamerProfileActivity extends AppCompatActivity {
             public void onResponse(Call<ProfileShowOutPut> call, Response<ProfileShowOutPut> response) {
                 if (response.body() != null) {
                     if (response.body().getResponseStatus() == 200) {
+                        pbar7.setVisibility(View.GONE);
                         profile = response.body().getUserProfile();
                         edt_name.setText(profile.get(0).getName().toString());
                         edt_phone.setText(profile.get(0).getMobileNumber());
@@ -93,6 +95,7 @@ public class GamerProfileActivity extends AppCompatActivity {
     }
 
     private void onProfileUpdate() {
+        pbar7.setVisibility(View.VISIBLE);
         AuthenticationApi api = ApiClient.getClient().create(AuthenticationApi.class);
         UpdateProfileInput i = new UpdateProfileInput();
         i.setOperation("gamer_profile_update");
@@ -114,6 +117,7 @@ public class GamerProfileActivity extends AppCompatActivity {
                 if (response.body() != null) {
                     if (response.body().getResponseStatus() == 200) {
                         editoff();
+                        pbar7.setVisibility(View.GONE);
                         Toast.makeText(GamerProfileActivity.this, "Profile Updated", Toast.LENGTH_LONG).show();
 
                     }
@@ -156,6 +160,7 @@ public class GamerProfileActivity extends AppCompatActivity {
         edt_country = findViewById(R.id.edt_gamercountry);
         btn_update = findViewById(R.id.btn_update);
         btn_edt = findViewById(R.id.btn_edt);
+        pbar7=findViewById(R.id.pBar7);
 
     }
 

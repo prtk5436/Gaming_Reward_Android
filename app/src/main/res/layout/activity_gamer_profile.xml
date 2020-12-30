@@ -91,7 +91,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 >
-
+                <ProgressBar
+                    android:id="@+id/pBar7"
+                    android:theme="@style/ProgressBar1"
+                    style="?android:attr/horizontalGap"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone" />
 
                 <TableRow
                     android:layout_width="match_parent"
@@ -112,7 +118,7 @@
                         android:layout_marginStart="10dp"
                         android:layout_marginEnd="10dp"
                         android:layout_marginBottom="5dp"
-                        android:text="Aniket Varma"
+                        android:text=""
                         android:textColor="@color/black"
                         android:textSize="18dp" />
                 </TableRow>
@@ -139,7 +145,7 @@
                         android:layout_marginBottom="5dp"
                         android:inputType="number"
                         android:maxLength="10"
-                        android:text="8182838485"
+                        android:text=""
                         android:textColor="@color/black"
                         android:textSize="18dp"
                         tools:ignore="TextFields" />
@@ -172,7 +178,7 @@
                         android:layout_marginEnd="10dp"
                         android:layout_marginBottom="5dp"
                         android:inputType="textEmailAddress"
-                        android:text="xyz@gmail.com"
+                        android:text=""
                         android:textColor="@color/black"
                         />
 
@@ -265,7 +271,7 @@
                         android:layout_marginEnd="10dp"
                         android:layout_marginBottom="5dp"
                         android:maxLength="80"
-                        android:text="xyz"
+                        android:text=""
                         android:textColor="@color/black"
                         android:textSize="18dp" />
                 </TableRow>
@@ -291,7 +297,7 @@
                         android:layout_marginEnd="10dp"
                         android:layout_marginBottom="5dp"
                         android:maxLength="30"
-                        android:text="Dhule"
+                        android:text=""
                         android:textColor="@color/black"
                         android:textSize="18dp" />
 
@@ -323,7 +329,7 @@
                         android:layout_marginEnd="10dp"
                         android:layout_marginBottom="5dp"
                         android:maxLength="30"
-                        android:text="Maharashtra"
+                        android:text=""
                         android:textColor="@color/black"
                         android:textSize="18dp" />
 
@@ -356,7 +362,7 @@
                         android:layout_marginBottom="5dp"
                         android:inputType="number"
                         android:maxLength="10"
-                        android:text="420255"
+                        android:text=""
                         android:textColor="@color/black"
                         android:textSize="18dp" />
 
@@ -388,7 +394,7 @@
                         android:layout_marginEnd="10dp"
                         android:layout_marginBottom="5dp"
                         android:maxLength="30"
-                        android:text="India"
+                        android:text=""
                         android:textColor="@color/black"
                         android:textSize="18dp" />
                 </TableRow>
