@@ -1,7 +1,13 @@
 package com.example.gamingrewardandroid.LoginStudent;
 
+import android.annotation.SuppressLint;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
@@ -16,6 +22,7 @@ import android.widget.Toast;
 
 
 import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 
@@ -29,17 +36,23 @@ import com.example.gamingrewardandroid.MyFeatureController;
 import com.example.gamingrewardandroid.PointsForm.PointsDataForm;
 import com.example.gamingrewardandroid.R;
 import com.example.gamingrewardandroid.Registration.RegistrationActivity;
+import com.example.gamingrewardandroid.SplashScreen;
 import com.example.gamingrewardandroid.WebServiceClasses.ApiClient;
 import com.example.gamingrewardandroid.WebServiceClasses.WebserviceConstant;
 import com.google.gson.Gson;
 
+import org.jsoup.Jsoup;
+
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.concurrent.ExecutionException;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
 import static android.view.View.GONE;
+import static com.example.gamingrewardandroid.MainApplication.getContext;
 
 public class LoginActivity extends AppCompatActivity {
     private Button btnlogin;
@@ -47,7 +60,7 @@ public class LoginActivity extends AppCompatActivity {
     private ProgressBar pgsBar;
     SharedPreferences pref;
     SharedPreferences.Editor editor;
-    private TextView tv1;
+    private TextView tv1,vcode;
     String [] gamename;
     private RadioGroup rdg_app_type;
     String uname,pass;
@@ -60,6 +73,18 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         init();
+        //CheckUPdate();
+
+        PackageInfo pinfo = null;
+        try {
+            pinfo = getApplicationContext().getPackageManager().getPackageInfo(getApplicationContext().getPackageName(), 0);
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }
+        String name = pinfo.versionName;
+        vcode.setText("Application Version : " + name);
+
+
         pref=getApplicationContext().getSharedPreferences("credentials",MODE_PRIVATE);
         editor=pref.edit();
         uname= pref.getString("username","");
@@ -197,7 +222,80 @@ public class LoginActivity extends AppCompatActivity {
         rbtn_dev = (RadioButton) findViewById(R.id.rbtn_dev);
         rbtn_test = (RadioButton) findViewById(R.id.rbtn_test);
         rbtn_production = (RadioButton) findViewById(R.id.rbtn_production);
+        vcode=findViewById(R.id.edt_verno);
     }
+
+//update version
+    @SuppressLint("StaticFieldLeak")
+    public class VersionChecker extends AsyncTask<String, String, String> {
+        private String newVersion;
+        @Override
+        protected String doInBackground(String... params) {
+
+            try {
+                newVersion = Jsoup.connect("https://play.google.com/store/apps/details?id="+getPackageName())
+                        .timeout(30000)
+                        .userAgent("Mozilla/5.0 (Windows; U; WindowsNT 5.1; en-US; rv1.8.1.6) Gecko/20070725 Firefox/2.0.0.6")
+                        .referrer("http://www.google.com")
+                        .get()
+                        .select(".hAyfc .htlgb")
+                        .get(7)
+                        .ownText();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            return newVersion;
+        }
+    }
+    private void CheckUPdate() {
+        LoginActivity.VersionChecker versionChecker = new VersionChecker();
+        try
+        {
+            // String appVersionName = BuildConfig.VERSION_NAME;
+            PackageInfo pinfo = null;
+            try {
+                pinfo = this.getPackageManager().getPackageInfo(this.getPackageName(), 0);
+            } catch (PackageManager.NameNotFoundException e) {
+                e.printStackTrace();
+            }
+            String name = pinfo.versionName;
+            String mLatestVersionName = versionChecker.execute().get();
+            Integer i=name.compareTo(mLatestVersionName);
+            System.out.println(name);
+            System.out.println(mLatestVersionName);
+            System.out.println(i);
+
+
+            if(i<0){
+                AlertDialog.Builder alertDialog = new AlertDialog.Builder(LoginActivity.this);
+                alertDialog.setTitle("Please update your app");
+                alertDialog.setCancelable(true);
+                alertDialog.setMessage("This app version is no longer supported. Please update your app from the Play Store.");
+                alertDialog.setPositiveButton("UPDATE NOW", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        final String appPackageName = getPackageName();
+                        try {
+                            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + appPackageName)));
+                        } catch (android.content.ActivityNotFoundException anfe) {
+                            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=" + appPackageName)));
+                        }
+                    }
+                });
+               /* alertDialog.setNegativeButton("Later", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.cancel();
+                    }
+                });*/
+                alertDialog.show();
+            }
+
+        } catch (InterruptedException | ExecutionException e) {
+            e.printStackTrace();
+        }
+    }
+
+
 
 
 }
